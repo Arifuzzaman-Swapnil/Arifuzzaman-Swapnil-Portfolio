@@ -20,7 +20,7 @@ const skillCategories = [
   },
   {
     title: "Model Development",
-    skills: ["Dataset Preparation", "EDA", "Data Preprocessing", "Model Training"],
+    skills: ["Dataset Preparation", "EDA", "Data Preprocessing", "Feature Engineering", "Model Training", "Hyperparameter Tuning", "Model Evaluation", "Transfer Learning", "Fine-Tuning"],
   },
   {
     title: "AI Automation",
@@ -33,6 +33,10 @@ const skillCategories = [
       "Hugging Face", "NLTK", "spaCy", "Pandas", "NumPy",
       "MoviePy", "LangChain", "FAISS", "ChromaDB", "RAG",
     ],
+  },
+  {
+    title: "Cloud / DevOps",
+    skills: ["AWS", "GCP", "Vercel", "Railway", "Render", "GitHub Actions"],
   },
 ];
 
