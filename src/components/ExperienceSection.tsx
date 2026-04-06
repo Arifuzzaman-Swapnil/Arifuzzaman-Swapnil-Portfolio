@@ -34,16 +34,22 @@ const experiences = [
     points: [
       "Architected and maintained scalable Django backend systems powering AI-driven applications with robust API endpoints and data management",
       "Developed and integrated production-ready AI models with a strong focus on Retrieval-Augmented Generation (RAG) pipelines for intelligent document processing and knowledge retrieval",
+      "Built end-to-end data ingestion and preprocessing pipelines for large-scale document corpora, enabling efficient vector search and semantic retrieval",
+      "Designed RESTful and WebSocket APIs to serve real-time AI predictions and conversational agents to enterprise clients",
+      "Collaborated with cross-functional teams to translate business requirements into technical AI solutions deployed safely at scale",
     ],
   },
   {
-    title: "AI Solutions Architect",
+    title: "Lead AI Solutions Architect",
     company: "Aesthetic Logic",
     companyUrl: "https://aestheticlogic.com/about-us",
     period: "Apr 2026 – Present",
     points: [
-      "Leading AI initiatives and architecting intelligent solutions to solve complex business challenges",
-      "Designing and implementing end-to-end AI system architectures for scalable, production-grade applications",
+      "Leading AI initiatives and architecting intelligent solutions that address complex, real-world business challenges across multiple domains",
+      "Designing and implementing end-to-end AI system architectures — from data pipelines to model serving — for scalable, production-grade applications",
+      "Evaluating and integrating state-of-the-art LLMs, embedding models, and agentic frameworks into client-facing products",
+      "Defining AI strategy and technical roadmaps, ensuring alignment between business goals and engineering execution",
+      "Mentoring junior developers on best practices in AI/ML engineering, code quality, and system design",
     ],
   },
 ];
