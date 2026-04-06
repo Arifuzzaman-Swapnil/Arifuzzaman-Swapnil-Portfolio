@@ -17,7 +17,7 @@ const experiences = [
   {
     title: "Full Stack Web Developer",
     company: "Abedin Tech",
-    companyUrl: "https://abedintech.com/",
+    companyUrl: "https://abedintech.com/our-team/",
     period: "May 2025 – Present",
     points: [
       "Built and deployed full-stack web applications using Python Flask, handling routing, templating, and REST API development",
@@ -29,11 +29,21 @@ const experiences = [
   {
     title: "Backend AI Developer",
     company: "Intelleqt AI",
-    companyUrl: "https://www.intelleqt.ai/",
+    companyUrl: "https://www.intelleqt.ai/about",
     period: "Feb 2026 – Present",
     points: [
       "Architected and maintained scalable Django backend systems powering AI-driven applications with robust API endpoints and data management",
       "Developed and integrated production-ready AI models with a strong focus on Retrieval-Augmented Generation (RAG) pipelines for intelligent document processing and knowledge retrieval",
+    ],
+  },
+  {
+    title: "AI Solutions Architect",
+    company: "Aesthetic Logic",
+    companyUrl: "https://aestheticlogic.com/about-us",
+    period: "Apr 2026 – Present",
+    points: [
+      "Leading AI initiatives and architecting intelligent solutions to solve complex business challenges",
+      "Designing and implementing end-to-end AI system architectures for scalable, production-grade applications",
     ],
   },
 ];
