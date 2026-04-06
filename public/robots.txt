@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://arifuzzaman-swapnil.vercel.app/sitemap.xml
+Sitemap: https://md-arifuzzaman-swapnil.vercel.app/sitemap.xml
