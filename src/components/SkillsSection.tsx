@@ -4,7 +4,7 @@ import SectionHeader from "./SectionHeader";
 const skillCategories = [
   {
     title: "Languages",
-    skills: ["C", "C++", "Java (OOP)", "Python", "PHP", "TypeScript"],
+    skills: ["C", "C++", "Java (OOP)", "Python", "PHP", "TypeScript", "Node.js"],
   },
   {
     title: "Web",
@@ -16,11 +16,11 @@ const skillCategories = [
   },
   {
     title: "Tools",
-    skills: ["Git", "Google Colab", "Jupyter Notebook", "Kaggle", "VS Code", "Google Antigravity"],
+    skills: ["Github", "Google Colab", "Jupyter Notebook", "Kaggle", "VS Code", "Google Antigravity", "Postman"],
   },
   {
     title: "Model Development",
-    skills: ["Dataset Preparation", "EDA", "Data Preprocessing", "Feature Engineering", "Model Training", "Hyperparameter Tuning", "Model Evaluation", "Transfer Learning", "Fine-Tuning"],
+    skills: ["Data Preprocessing", "EDA", "Feature Engineering", "Model Training", "Model Evaluation", "Hyperparameter Tuning", "Transfer Learning", "Fine-Tuning"],
   },
   {
     title: "AI Automation",
@@ -29,9 +29,9 @@ const skillCategories = [
   {
     title: "AI / ML Libraries",
     skills: [
-      "TensorFlow", "Keras", "PyTorch", "Scikit-learn", "OpenCV",
+      "TensorFlow", "Keras", "PyTorch", "Scikit-learn", "OpenCV", "RAG",
       "Hugging Face", "NLTK", "spaCy", "Pandas", "NumPy",
-      "MoviePy", "LangChain", "FAISS", "ChromaDB", "RAG",
+      "MoviePy", "LangChain", "FAISS", "ChromaDB",
     ],
   },
   {
