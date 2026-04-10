@@ -14,19 +14,125 @@
   <link rel="canonical" href="https://md-arifuzzaman-swapnil.vercel.app/" />
   <link rel="icon" type="image/png" href="/favicon.png" />
 
-  <!-- Open Graph -->
+  <!-- Critical CSS for instant rendering -->
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&family=Space+Grotesk:wght@300;400;500;600;700&display=swap');
+
+    :root {
+      --background: 220 20% 4%;
+      --foreground: 210 20% 92%;
+      --font-display: 'Space Grotesk', sans-serif;
+      --font-mono: 'JetBrains Mono', monospace;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      background-color: hsl(var(--background));
+      color: hsl(var(--foreground));
+      font-family: var(--font-display), -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+
+    #root {
+      min-height: 100vh;
+      padding: 2rem;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    h1, h2, h3, h4, h5, h6 {
+      font-family: var(--font-display), sans-serif;
+      font-weight: 600;
+      margin-top: 1.5rem;
+      margin-bottom: 0.75rem;
+    }
+
+    h1 { font-size: 2.5rem; }
+    h2 { font-size: 2rem; }
+    h3 { font-size: 1.5rem; }
+
+    p { margin-bottom: 1rem; }
+
+    a {
+      color: hsl(175 80% 50%);
+      text-decoration: none;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+
+    section {
+      margin-bottom: 2rem;
+    }
+
+    ul {
+      margin-left: 1.5rem;
+      margin-bottom: 1rem;
+    }
+
+    li {
+      margin-bottom: 0.5rem;
+    }
+  </style>
+
+  <!-- SEO Meta Tags -->
+  <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
+  <meta name="googlebot" content="index, follow" />
+  <meta name="bingbot" content="index, follow" />
+  <meta name="language" content="English" />
+  <meta name="revisit-after" content="7 days" />
+  <meta name="rating" content="General" />
+  <meta name="geo.region" content="BD-13" />
+  <meta name="geo.placename" content="Dhaka" />
+  <meta name="geo.position" content="23.8103;90.4125" />
+  <meta name="ICBM" content="23.8103, 90.4125" />
+
+  <!-- Open Graph / Facebook -->
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://md-arifuzzaman-swapnil.vercel.app/" />
   <meta property="og:title" content="Md Arifuzzaman Swapnil | Backend AI Engineer & Full Stack Python Developer" />
   <meta property="og:description"
     content="Backend AI Engineer & AI Solutions Architect specializing in Django, FastAPI, RAG pipelines, and production-grade AI systems." />
   <meta property="og:site_name" content="Md Arifuzzaman Swapnil Portfolio" />
+  <meta property="og:locale" content="en_US" />
+  <meta property="og:image" content="https://md-arifuzzaman-swapnil.vercel.app/favicon.png" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:image:alt" content="Md Arifuzzaman Swapnil - Backend AI Engineer Portfolio" />
 
-  <!-- Twitter -->
+  <!-- Twitter Card -->
   <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:site" content="@swapnil" />
+  <meta name="twitter:creator" content="@swapnil" />
   <meta name="twitter:title" content="Md Arifuzzaman Swapnil | Backend AI Engineer & Full Stack Python Developer" />
   <meta name="twitter:description"
     content="Backend AI Engineer & AI Solutions Architect specializing in Django, FastAPI, RAG pipelines, and production-grade AI systems." />
+  <meta name="twitter:image" content="https://md-arifuzzaman-swapnil.vercel.app/favicon.png" />
+  <meta name="twitter:image:alt" content="Md Arifuzzaman Swapnil - Backend AI Engineer Portfolio" />
+
+  <!-- Additional Social Meta Tags -->
+  <meta property="article:author" content="Md Arifuzzaman Swapnil" />
+  <meta property="profile:first_name" content="Md Arifuzzaman" />
+  <meta property="profile:last_name" content="Swapnil" />
+  <meta property="profile:username" content="arifuzzaman-swapnil" />
+
+  <!-- Mobile & Web App Meta Tags -->
+  <meta name="mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+  <meta name="apple-mobile-web-app-title" content="Swapnil Portfolio" />
+  <meta name="application-name" content="Md Arifuzzaman Swapnil Portfolio" />
+  <meta name="theme-color" content="#0a0a0f" />
+  <meta name="msapplication-TileColor" content="#0a0a0f" />
+  <meta name="msapplication-navbutton-color" content="#0a0a0f" />
 
   <!-- Structured Data (JSON-LD) for Google Rich Results -->
   <script type="application/ld+json">
@@ -34,13 +140,16 @@
       "@context": "https://schema.org",
       "@type": "Person",
       "name": "Md Arifuzzaman Swapnil",
+      "alternateName": "Arifuzzaman Swapnil",
       "url": "https://md-arifuzzaman-swapnil.vercel.app",
-      "jobTitle": "Backend AI Engineer",
-      "description": "Backend AI Engineer, Full Stack Python Developer, and AI Solutions Architect specializing in Django, FastAPI, RAG pipelines, LangChain, and production-grade AI systems.",
+      "image": "https://md-arifuzzaman-swapnil.vercel.app/favicon.png",
+      "jobTitle": ["Backend AI Engineer", "Full Stack Python Developer", "AI Solutions Architect"],
+      "description": "Backend AI Engineer and Full Stack Python Developer with a strong foundation in AI, ML, NLP, and Retrieval-Augmented Generation (RAG). Experienced in building scalable backend systems using Django and FastAPI, designing RESTful APIs, and integrating production-ready AI models for real-world applications.",
       "email": "md.arifuzzamanswapnil@gmail.com",
       "telephone": "+8801722569839",
       "address": {
         "@type": "PostalAddress",
+        "streetAddress": "Ibrahimpur",
         "addressLocality": "Dhaka",
         "addressCountry": "BD"
       },
@@ -52,16 +161,199 @@
       "worksFor": [
         {
           "@type": "Organization",
+          "name": "Aesthetic Logic",
+          "url": "https://aestheticlogic.com"
+        },
+        {
+          "@type": "Organization",
           "name": "Intelleqt AI",
           "url": "https://www.intelleqt.ai"
         },
         {
           "@type": "Organization",
-          "name": "Aesthetic Logic",
-          "url": "https://aestheticlogic.com"
+          "name": "Abedin Tech",
+          "url": "https://abedintech.com"
         }
       ],
-      "knowsAbout": ["Artificial Intelligence", "Machine Learning", "Django", "FastAPI", "RAG", "LangChain", "NLP", "Python", "Backend Development"]
+      "alumniOf": {
+        "@type": "CollegeOrUniversity",
+        "name": "Bangladesh University of Business and Technology",
+        "url": "https://www.bubt.edu.bd"
+      },
+      "hasCredential": [
+        {
+          "@type": "EducationalOccupationalCredential",
+          "credentialCategory": "degree",
+          "name": "B.Sc. in Computer Science & Engineering (Software Engineering Major)",
+          "educationalLevel": "Bachelor's Degree",
+          "recognizedBy": {
+            "@type": "CollegeOrUniversity",
+            "name": "Bangladesh University of Business and Technology"
+          }
+        },
+        {
+          "@type": "EducationalOccupationalCredential",
+          "credentialCategory": "certificate",
+          "name": "Fullstack Laravel Developer",
+          "recognizedBy": {
+            "@type": "Organization",
+            "name": "InteractiveCares"
+          }
+        },
+        {
+          "@type": "EducationalOccupationalCredential",
+          "credentialCategory": "certificate",
+          "name": "Natural Language Processing",
+          "recognizedBy": {
+            "@type": "Organization",
+            "name": "InnovativeSkillsBD"
+          }
+        }
+      ],
+      "award": [
+        "30th Rank (Bangladesh) – ITEE, Japan (2024) among ~600,000 applicants",
+        "2nd Prize – IoT Project Showcase, BUBT (2023)",
+        "5th Place – Senior Intra-University Competitive Programming Contest (BUBT)",
+        "ICPC Regional Contest Participant",
+        "Dean's List – BUBT",
+        "Merit Scholarship",
+        "Best Project Award – BUBT"
+      ],
+      "knowsAbout": [
+        "Artificial Intelligence",
+        "Machine Learning",
+        "Deep Learning",
+        "Natural Language Processing",
+        "Computer Vision",
+        "Django",
+        "FastAPI",
+        "Flask",
+        "Python",
+        "RAG",
+        "LangChain",
+        "TensorFlow",
+        "PyTorch",
+        "Backend Development",
+        "REST API",
+        "AI Automation",
+        "LLM",
+        "FAISS",
+        "Vector Search"
+      ],
+      "knowsLanguage": ["English", "Bengali"]
+    }
+  </script>
+
+  <!-- Work Experience Structured Data -->
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "ItemList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "item": {
+            "@type": "Role",
+            "roleName": "Lead AI Solutions Architect",
+            "startDate": "2026-04",
+            "worksFor": {
+              "@type": "Organization",
+              "name": "Aesthetic Logic",
+              "url": "https://aestheticlogic.com"
+            },
+            "description": "Leading AI initiatives and architecting intelligent solutions. Designing end-to-end AI system architectures from data pipelines to model serving. Evaluating and integrating state-of-the-art LLMs, embedding models, and agentic frameworks."
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "item": {
+            "@type": "Role",
+            "roleName": "Backend AI Developer",
+            "startDate": "2026-02",
+            "worksFor": {
+              "@type": "Organization",
+              "name": "Intelleqt AI",
+              "url": "https://www.intelleqt.ai"
+            },
+            "description": "Architecting scalable Django backend systems. Developing production-ready AI models with focus on RAG pipelines. Designing RESTful and WebSocket APIs for real-time AI predictions."
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "item": {
+            "@type": "Role",
+            "roleName": "Full Stack Web Developer",
+            "startDate": "2025-05",
+            "worksFor": {
+              "@type": "Organization",
+              "name": "Abedin Tech",
+              "url": "https://abedintech.com"
+            },
+            "description": "Building full-stack web applications using Python Flask and Django. Developing AI-powered websites integrating machine learning models. Creating AI automation pipelines and intelligent AI agents."
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 4,
+          "item": {
+            "@type": "Role",
+            "roleName": "Teaching Assistant",
+            "startDate": "2025-01",
+            "endDate": "2025-12",
+            "worksFor": {
+              "@type": "EducationalOrganization",
+              "name": "Bangladesh University of Business and Technology",
+              "url": "https://www.bubt.edu.bd"
+            },
+            "description": "Teaching Machine Learning, Object-Oriented Programming (C++), and Advanced Programming (Java)"
+          }
+        }
+      ]
+    }
+  </script>
+
+  <!-- Website Structured Data -->
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebSite",
+      "name": "Md Arifuzzaman Swapnil Portfolio",
+      "url": "https://md-arifuzzaman-swapnil.vercel.app",
+      "description": "Professional portfolio of Md Arifuzzaman Swapnil - Backend AI Engineer, Full Stack Python Developer, and AI Solutions Architect",
+      "author": {
+        "@type": "Person",
+        "name": "Md Arifuzzaman Swapnil"
+      },
+      "inLanguage": "en-US"
+    }
+  </script>
+
+  <!-- Professional Profile Structured Data -->
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "ProfilePage",
+      "mainEntity": {
+        "@type": "Person",
+        "name": "Md Arifuzzaman Swapnil",
+        "hasOccupation": [
+          {
+            "@type": "Occupation",
+            "name": "Backend AI Engineer",
+            "occupationalCategory": "15-1299.09",
+            "skills": "Python, Django, FastAPI, Machine Learning, AI, RAG, LangChain"
+          },
+          {
+            "@type": "Occupation",
+            "name": "Full Stack Python Developer",
+            "occupationalCategory": "15-1252.00",
+            "skills": "Python, Flask, Django, React, REST API, Web Development"
+          }
+        ]
+      }
     }
     </script>
 </head>
@@ -69,144 +361,216 @@
 <body>
   <div id="root">
     <!-- Static fallback for AI bots & crawlers — React replaces this on mount -->
-    <h1>Md Arifuzzaman Swapnil</h1>
-    <p>Backend AI Engineer | Full Stack Python Developer | AI Developer</p>
-    <p>Ibrahimpur, Dhaka | md.arifuzzamanswapnil@gmail.com | +880 1722-569839</p>
-    <p><a href="https://www.linkedin.com/in/arifuzzaman-swapnil">LinkedIn</a> | <a
-        href="https://github.com/Arifuzzaman-Swapnil">GitHub</a></p>
+    <header>
+      <h1>Md Arifuzzaman Swapnil</h1>
+      <p>Backend AI Engineer | Full Stack Python Developer | AI Solutions Architect</p>
+      <p>Ibrahimpur, Dhaka, Bangladesh | md.arifuzzamanswapnil@gmail.com | +880 1722-569839</p>
+      <p>
+        <a href="https://www.linkedin.com/in/arifuzzaman-swapnil" target="_blank" rel="noopener noreferrer">LinkedIn</a> |
+        <a href="https://github.com/Arifuzzaman-Swapnil" target="_blank" rel="noopener noreferrer">GitHub</a> |
+        <a href="https://www.facebook.com/profile.php?id=100014180013753" target="_blank" rel="noopener noreferrer">Facebook</a>
+      </p>
+    </header>
 
-    <section>
-      <h2>About</h2>
-      <p>Backend AI Engineer and Full Stack Python Developer with a strong foundation in AI, ML, NLP, and
-        Retrieval-Augmented Generation (RAG). Experienced in building scalable backend systems using Django and FastAPI,
-        designing RESTful APIs, and integrating production-ready AI models for real-world applications such as
-        intelligent document processing, sentiment analysis, and AI-powered automation. Proficient in Python, Django,
-        FastAPI, Flask, and LangChain. Passionate about architecting intelligent backend systems and driving AI
-        innovation.</p>
+    <section id="about">
+      <h2>About Me</h2>
+      <p>Backend AI Engineer and Full Stack Python Developer with a strong foundation in AI, ML, NLP, and Retrieval-Augmented Generation (RAG). Experienced in building scalable backend systems using Django and FastAPI, designing RESTful APIs, and integrating production-ready AI models for real-world applications such as intelligent document processing, sentiment analysis, and AI-powered automation. Proficient in Python, Django, FastAPI, Flask, and LangChain. Passionate about architecting intelligent backend systems and driving AI innovation.</p>
     </section>
 
-    <section>
+    <section id="education">
       <h2>Education</h2>
-      <h3>B.Sc. in Computer Science &amp; Engineering (Software Engineering Major)</h3>
-      <p>Bangladesh University of Business and Technology (BUBT) | 2021 – 2025 | CGPA: 3.92 / 4.00</p>
-      <h3>Higher Secondary Certificate (HSC)</h3>
-      <p>Government Science College | 2018 – 2020 | GPA: 5.00 / 5.00</p>
-      <h3>Secondary School Certificate (SSC)</h3>
-      <p>Shaheed Police Smrity College | 2017 – 2018 | GPA: 5.00 / 5.00</p>
+
+      <article>
+        <h3>B.Sc. in Computer Science &amp; Engineering (Software Engineering Major)</h3>
+        <p><strong>Bangladesh University of Business and Technology (BUBT)</strong></p>
+        <p>Duration: 2021 – 2025</p>
+        <p>CGPA: 3.92 / 4.00</p>
+      </article>
+
+      <article>
+        <h3>Higher Secondary Certificate (HSC)</h3>
+        <p><strong>Government Science College</strong></p>
+        <p>Duration: 2018 – 2020</p>
+        <p>GPA: 5.00 / 5.00</p>
+      </article>
+
+      <article>
+        <h3>Secondary School Certificate (SSC)</h3>
+        <p><strong>Shaheed Police Smrity College</strong></p>
+        <p>Duration: 2017 – 2018</p>
+        <p>GPA: 5.00 / 5.00</p>
+      </article>
     </section>
 
-    <section>
+    <section id="experience">
       <h2>Work Experience</h2>
 
-      <h3>Lead AI Solutions Architect @ <a href="https://aestheticlogic.com/about-us">Aesthetic Logic</a></h3>
-      <p>Apr 2026 – Present</p>
-      <ul>
-        <li>Leading AI initiatives and architecting intelligent solutions that address complex, real-world business
-          challenges across multiple domains</li>
-        <li>Designing and implementing end-to-end AI system architectures — from data pipelines to model serving — for
-          scalable, production-grade applications</li>
-        <li>Evaluating and integrating state-of-the-art LLMs, embedding models, and agentic frameworks into
-          client-facing products</li>
-        <li>Defining AI strategy and technical roadmaps, ensuring alignment between business goals and engineering
-          execution</li>
-        <li>Mentoring junior developers on best practices in AI/ML engineering, code quality, and system design</li>
-      </ul>
+      <article>
+        <h3>Lead AI Solutions Architect</h3>
+        <p><strong>Company:</strong> <a href="https://aestheticlogic.com/about-us" target="_blank" rel="noopener noreferrer">Aesthetic Logic</a></p>
+        <p><strong>Duration:</strong> Apr 2026 – Present</p>
+        <p><strong>Responsibilities:</strong></p>
+        <ul>
+          <li>Leading AI initiatives and architecting intelligent solutions that address complex, real-world business challenges across multiple domains</li>
+          <li>Designing and implementing end-to-end AI system architectures — from data pipelines to model serving — for scalable, production-grade applications</li>
+          <li>Evaluating and integrating state-of-the-art LLMs, embedding models, and agentic frameworks into client-facing products</li>
+          <li>Defining AI strategy and technical roadmaps, ensuring alignment between business goals and engineering execution</li>
+          <li>Mentoring junior developers on best practices in AI/ML engineering, code quality, and system design</li>
+        </ul>
+      </article>
 
-      <h3>Backend AI Developer @ <a href="https://www.intelleqt.ai/about">Intelleqt AI</a></h3>
-      <p>Feb 2026 – Present</p>
-      <ul>
-        <li>Architected and maintained scalable Django backend systems powering AI-driven applications with robust API
-          endpoints and data management</li>
-        <li>Developed and integrated production-ready AI models with a strong focus on Retrieval-Augmented Generation
-          (RAG) pipelines for intelligent document processing and knowledge retrieval</li>
-        <li>Built end-to-end data ingestion and preprocessing pipelines for large-scale document corpora, enabling
-          efficient vector search and semantic retrieval</li>
-        <li>Designed RESTful and WebSocket APIs to serve real-time AI predictions and conversational agents to
-          enterprise clients</li>
-        <li>Collaborated with cross-functional teams to translate business requirements into technical AI solutions
-          deployed safely at scale</li>
-      </ul>
+      <article>
+        <h3>Backend AI Developer</h3>
+        <p><strong>Company:</strong> <a href="https://www.intelleqt.ai/about" target="_blank" rel="noopener noreferrer">Intelleqt AI</a></p>
+        <p><strong>Duration:</strong> Feb 2026 – Present</p>
+        <p><strong>Responsibilities:</strong></p>
+        <ul>
+          <li>Architected and maintained scalable Django backend systems powering AI-driven applications with robust API endpoints and data management</li>
+          <li>Developed and integrated production-ready AI models with a strong focus on Retrieval-Augmented Generation (RAG) pipelines for intelligent document processing and knowledge retrieval</li>
+          <li>Built end-to-end data ingestion and preprocessing pipelines for large-scale document corpora, enabling efficient vector search and semantic retrieval</li>
+          <li>Designed RESTful and WebSocket APIs to serve real-time AI predictions and conversational agents to enterprise clients</li>
+          <li>Collaborated with cross-functional teams to translate business requirements into technical AI solutions deployed safely at scale</li>
+        </ul>
+      </article>
 
-      <h3>Full Stack Web Developer @ <a href="https://abedintech.com/our-team/">Abedin Tech</a></h3>
-      <p>May 2025 – Present</p>
-      <ul>
-        <li>Built and deployed full-stack web applications using Python Flask, handling routing, templating, and REST
-          API development</li>
-        <li>Developed Django-based AI-powered websites integrating machine learning models for intelligent features and
-          data-driven functionalities</li>
-        <li>Designed and implemented AI automation pipelines to streamline repetitive business workflows, improving
-          efficiency and reducing manual effort</li>
-        <li>Built intelligent AI agents, chatbots, and AI-powered calling systems to automate customer interactions and
-          enhance user engagement</li>
-      </ul>
+      <article>
+        <h3>Full Stack Web Developer</h3>
+        <p><strong>Company:</strong> <a href="https://abedintech.com/our-team/" target="_blank" rel="noopener noreferrer">Abedin Tech</a></p>
+        <p><strong>Duration:</strong> May 2025 – Present</p>
+        <p><strong>Responsibilities:</strong></p>
+        <ul>
+          <li>Built and deployed full-stack web applications using Python Flask, handling routing, templating, and REST API development</li>
+          <li>Developed Django-based AI-powered websites integrating machine learning models for intelligent features and data-driven functionalities</li>
+          <li>Designed and implemented AI automation pipelines to streamline repetitive business workflows, improving efficiency and reducing manual effort</li>
+          <li>Built intelligent AI agents, chatbots, and AI-powered calling systems to automate customer interactions and enhance user engagement</li>
+        </ul>
+      </article>
 
-      <h3>Teaching Assistant (TA) @ <a href="https://www.bubt.edu.bd/">BUBT</a></h3>
-      <p>Jan 2025 – Dec 2025</p>
-      <ul>
-        <li>Conducted lectures and labs on Machine Learning (ML)</li>
-        <li>Object-Oriented Programming (C++)</li>
-        <li>Advanced Programming (Java)</li>
-      </ul>
+      <article>
+        <h3>Teaching Assistant (TA)</h3>
+        <p><strong>Institution:</strong> <a href="https://www.bubt.edu.bd/" target="_blank" rel="noopener noreferrer">Bangladesh University of Business and Technology (BUBT)</a></p>
+        <p><strong>Duration:</strong> Jan 2025 – Dec 2025</p>
+        <p><strong>Responsibilities:</strong></p>
+        <ul>
+          <li>Conducted lectures and labs on Machine Learning (ML)</li>
+          <li>Taught Object-Oriented Programming (C++)</li>
+          <li>Taught Advanced Programming (Java)</li>
+        </ul>
+      </article>
     </section>
 
-    <section>
-      <h2>Projects</h2>
-      <h3><a href="https://github.com/Arifuzzaman-Swapnil/Animal-Classification-CNN">Animal Image Classification Using
-          CNN</a></h3>
-      <p>Custom dataset of 30 animal classes (3,000 images), achieved 99% accuracy, deployed via Flask web app.</p>
-      <h3>Bangla Sign Language Sentiment Analysis</h3>
-      <p>Built hybrid CNN+NLP model for Bangla sign language text dataset.</p>
-      <h3><a href="https://github.com/Arifuzzaman-Swapnil/AiCareerAgent">LLM-Based Career Guidance System</a></h3>
-      <p>Career-focused chatbot, resume evaluation, AI interview questions, and smart CV builder.</p>
-      <h3><a href="https://github.com/Arifuzzaman-Swapnil/Cyber-Bullying-Sentimental-Analysis-">Cyberbullying Detection
-          Using NLP</a></h3>
-      <p>Designed sentiment analysis system to detect cyberbullying from online text.</p>
-      <h3><a href="https://github.com/Arifuzzaman-Swapnil/Rag-Bangla-AI">RAG Multilingual Bangla AI</a></h3>
-      <p>Real-time Bangla Q&amp;A system using NLP + FAISS + LLM, 95%+ accuracy.</p>
-      <h3><a href="https://github.com/Arifuzzaman-Swapnil/Bangladesh-News-Classification-using-NLP">Bangla News
-          Classification System</a></h3>
-      <p>NLP-based classifier for Bangla news articles.</p>
+    <section id="projects">
+      <h2>Personal Projects</h2>
+
+      <article>
+        <h3><a href="https://github.com/Arifuzzaman-Swapnil/Animal-Classification-CNN" target="_blank" rel="noopener noreferrer">Animal Image Classification Using CNN</a></h3>
+        <p>Custom dataset of 30 animal classes (3,000 images), achieved 99% accuracy, deployed via Flask web app.</p>
+      </article>
+
+      <article>
+        <h3>Bangla Sign Language Sentiment Analysis</h3>
+        <p>Built hybrid CNN+NLP model for Bangla sign language text dataset.</p>
+      </article>
+
+      <article>
+        <h3><a href="https://github.com/Arifuzzaman-Swapnil/AiCareerAgent" target="_blank" rel="noopener noreferrer">LLM-Based Career Guidance System</a></h3>
+        <p>Career-focused chatbot, resume evaluation, AI interview questions, and smart CV builder.</p>
+      </article>
+
+      <article>
+        <h3><a href="https://github.com/Arifuzzaman-Swapnil/Cyber-Bullying-Sentimental-Analysis-" target="_blank" rel="noopener noreferrer">Cyberbullying Detection Using NLP</a></h3>
+        <p>Designed sentiment analysis system to detect cyberbullying from online text.</p>
+      </article>
+
+      <article>
+        <h3><a href="https://github.com/Arifuzzaman-Swapnil/Rag-Bangla-AI" target="_blank" rel="noopener noreferrer">RAG Multilingual Bangla AI</a></h3>
+        <p>Real-time Bangla Q&amp;A system using NLP + FAISS + LLM, 95%+ accuracy.</p>
+      </article>
+
+      <article>
+        <h3><a href="https://github.com/Arifuzzaman-Swapnil/Bangladesh-News-Classification-using-NLP" target="_blank" rel="noopener noreferrer">Bangla News Classification System</a></h3>
+        <p>NLP-based classifier for Bangla news articles.</p>
+      </article>
     </section>
 
-    <section>
-      <h2>Skills</h2>
-      <p><strong>Languages:</strong> C, C++, Java (OOP), Python, PHP, TypeScript, Node.js</p>
-      <p><strong>Web:</strong> HTML5, CSS3, JavaScript, React, Laravel, Flask, Django, FastAPI, REST API</p>
-      <p><strong>Databases:</strong> MySQL, MongoDB, Firebase, SQLite (Django)</p>
-      <p><strong>Tools:</strong> Github, Google Colab, Jupyter Notebook, Kaggle, VS Code, Postman</p>
-      <p><strong>Model Development:</strong> Data Preprocessing, EDA, Feature Engineering, Model Training, Model
-        Evaluation, Hyperparameter Tuning, Transfer Learning, Fine-Tuning</p>
-      <p><strong>AI Automation:</strong> AI Agents, AI Chatbots, AI Calling Systems, API Automation, n8n, Zapier, Make,
-        CrewAI, Flowise, LangFlow, Activepieces</p>
-      <p><strong>AI / ML Libraries:</strong> TensorFlow, Keras, PyTorch, Scikit-learn, OpenCV, RAG, Hugging Face, NLTK,
-        spaCy, Pandas, NumPy, MoviePy, LangChain, FAISS, ChromaDB</p>
-      <p><strong>Cloud / DevOps:</strong> AWS, GCP, Vercel, Railway, Render, GitHub Actions</p>
+    <section id="skills">
+      <h2>Technical Skills</h2>
+
+      <article>
+        <h3>Programming Languages</h3>
+        <p>C, C++, Java (OOP), Python, PHP, TypeScript, Node.js</p>
+      </article>
+
+      <article>
+        <h3>Web Development</h3>
+        <p>HTML5, CSS3, JavaScript, React, Laravel, Flask, Django, FastAPI, REST API</p>
+      </article>
+
+      <article>
+        <h3>Databases</h3>
+        <p>MySQL, MongoDB, Firebase, SQLite (Django)</p>
+      </article>
+
+      <article>
+        <h3>Development Tools</h3>
+        <p>Github, Google Colab, Jupyter Notebook, Kaggle, VS Code, Google Antigravity, Postman</p>
+      </article>
+
+      <article>
+        <h3>Model Development</h3>
+        <p>Data Preprocessing, EDA, Feature Engineering, Model Training, Model Evaluation, Hyperparameter Tuning, Transfer Learning, Fine-Tuning</p>
+      </article>
+
+      <article>
+        <h3>AI Automation Tools</h3>
+        <p>AI Agents, AI Chatbots, AI Calling Systems, API Automation, n8n, Zapier, Make, CrewAI, Flowise, LangFlow, Activepieces</p>
+      </article>
+
+      <article>
+        <h3>AI / ML Libraries &amp; Frameworks</h3>
+        <p>TensorFlow, Keras, PyTorch, Scikit-learn, OpenCV, RAG, Hugging Face, NLTK, spaCy, Pandas, NumPy, MoviePy, LangChain, FAISS, ChromaDB</p>
+      </article>
+
+      <article>
+        <h3>Cloud &amp; DevOps</h3>
+        <p>AWS, GCP, Vercel, Railway, Render, GitHub Actions</p>
+      </article>
     </section>
 
-    <section>
+    <section id="awards">
       <h2>Awards &amp; Certifications</h2>
-      <ul>
-        <li>30th Rank (Bangladesh) – ITEE, Japan (2024) among ~600,000 applicants</li>
-        <li>2nd Prize – IoT Project Showcase, BUBT (2023)</li>
-        <li>5th Place – Senior Intra-University Competitive Programming Contest (BUBT)</li>
-        <li>ICPC Regional Contest – Participated representing BUBT</li>
-        <li>Dean's List – Recognized for academic excellence at BUBT</li>
-        <li>Merit Scholarship – Awarded for outstanding academic performance</li>
-        <li>Best Project Award – Achieved for top semester project at BUBT</li>
-      </ul>
-      <h3>Certifications</h3>
-      <ul>
-        <li>Fullstack Laravel Developer – InteractiveCares</li>
-        <li>Software Quality Controller – FastFlowUp</li>
-        <li>Natural Language Processing – InnovativeSkillsBD</li>
-      </ul>
-      <h3>Research Interests</h3>
-      <p>Artificial Intelligence, Machine Learning, Deep Learning, Computer Vision, Natural Language Processing, CNN,
-        RAG, Image Processing</p>
+
+      <article>
+        <h3>Awards &amp; Achievements</h3>
+        <ul>
+          <li>30th Rank (Bangladesh) – ITEE, Japan (2024) among ~600,000 applicants</li>
+          <li>2nd Prize – IoT Project Showcase, BUBT (2023)</li>
+          <li>5th Place – Senior Intra-University Competitive Programming Contest (BUBT)</li>
+          <li>ICPC Regional Contest – Participated representing BUBT</li>
+          <li>Dean's List – Recognized for academic excellence at BUBT</li>
+          <li>Merit Scholarship – Awarded for outstanding academic performance</li>
+          <li>Best Project Award – Achieved for top semester project at BUBT</li>
+        </ul>
+      </article>
+
+      <article>
+        <h3>Professional Certifications</h3>
+        <ul>
+          <li>Fullstack Laravel Developer – InteractiveCares</li>
+          <li>Software Quality Controller – FastFlowUp</li>
+          <li>Natural Language Processing – InnovativeSkillsBD</li>
+        </ul>
+      </article>
+
+      <article>
+        <h3>Research Interests</h3>
+        <p>Artificial Intelligence, Machine Learning, Deep Learning, Computer Vision, Natural Language Processing, CNN, RAG, Image Processing</p>
+      </article>
     </section>
 
     <footer>
       <p>&copy; 2026 Md Arifuzzaman Swapnil. All rights reserved.</p>
+      <p>Portfolio Website: <a href="https://md-arifuzzaman-swapnil.vercel.app/">https://md-arifuzzaman-swapnil.vercel.app/</a></p>
     </footer>
   </div>
   <script type="module" src="/src/main.tsx"></script>
