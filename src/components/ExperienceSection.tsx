@@ -18,7 +18,7 @@ const experiences = [
     title: "Full Stack Web Developer",
     company: "Abedin Tech",
     companyUrl: "https://abedintech.com/our-team/",
-    period: "May 2025 – Present",
+    period: "May 2025 – February 2026",
     points: [
       "Built and deployed full-stack web applications using Python Flask, handling routing, templating, and REST API development",
       "Developed Django-based AI-powered websites integrating machine learning models for intelligent features and data-driven functionalities",
