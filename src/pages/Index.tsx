@@ -1,4 +1,3 @@
-import Navbar from "@/components/Navbar";
 import HeroSection from "@/components/HeroSection";
 import AboutSection from "@/components/AboutSection";
 import EducationSection from "@/components/EducationSection";
@@ -6,19 +5,25 @@ import ExperienceSection from "@/components/ExperienceSection";
 import ProjectsSection from "@/components/ProjectsSection";
 import SkillsSection from "@/components/SkillsSection";
 import AwardsSection from "@/components/AwardsSection";
-import Footer from "@/components/Footer";
+import ContactSection from "@/components/ContactSection";
+import GrainOverlay from "@/components/ui-custom/GrainOverlay";
+import Deck from "@/components/deck/Deck";
+
+const pages = [
+  { id: "home", label: "Home", node: <HeroSection /> },
+  { id: "about", label: "About", node: <AboutSection /> },
+  { id: "education", label: "Education", node: <EducationSection /> },
+  { id: "experience", label: "Experience", node: <ExperienceSection /> },
+  { id: "projects", label: "Projects", node: <ProjectsSection /> },
+  { id: "skills", label: "Skills", node: <SkillsSection /> },
+  { id: "awards", label: "Awards", node: <AwardsSection /> },
+  { id: "contact", label: "Contact", node: <ContactSection /> },
+];
 
 const Index = () => (
-  <div className="min-h-screen bg-background">
-    <Navbar />
-    <HeroSection />
-    <AboutSection />
-    <EducationSection />
-    <ExperienceSection />
-    <ProjectsSection />
-    <SkillsSection />
-    <AwardsSection />
-    <Footer />
+  <div className="relative h-full">
+    <GrainOverlay />
+    <Deck pages={pages} />
   </div>
 );
 

@@ -1,5 +1,7 @@
-import { motion } from "framer-motion";
 import SectionHeader from "./SectionHeader";
+import Reveal from "./ui-custom/Reveal";
+import GlassCard from "./ui-custom/GlassCard";
+import { SectionDecor } from "./ui-custom/SectionDecor";
 import { Award, BookOpen, Trophy, Medal, Star, ScrollText, FlaskConical, Code, GraduationCap, Sparkles } from "lucide-react";
 
 const awards = [
@@ -24,74 +26,68 @@ const researchInterests = [
 ];
 
 const AwardsSection = () => (
-  <section id="awards" className="py-24 px-6 bg-secondary/30">
-    <div className="container mx-auto max-w-4xl">
-      <SectionHeader tag="// achievements" title="Awards & Certifications" />
+  <section id="awards" className="relative flex min-h-full w-full items-center justify-center px-6 py-8 md:py-10">
+    <SectionDecor />
+    <div className="container mx-auto max-w-5xl">
+      <SectionHeader index="06" tag="// achievements" title="Awards & Certifications" />
 
-      <div className="space-y-6 mb-12">
+      <div className="mb-12 grid gap-6 lg:grid-cols-2">
         {/* Awards */}
-        <motion.div
-          className="bg-card-gradient border border-border rounded-lg p-6 shadow-card"
-          initial={{ opacity: 0, x: -20 }}
-          whileInView={{ opacity: 1, x: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.5 }}
-        >
-          <div className="flex items-center gap-2 mb-4">
-            <Award size={18} className="text-primary" />
-            <h3 className="font-mono text-sm text-primary">Awards</h3>
-          </div>
-          <ul className="space-y-3">
-            {awards.map((a, i) => (
-              <li key={i} className="text-sm text-muted-foreground flex gap-2">
-                <a.icon size={16} className="text-primary mt-0.5 shrink-0" /> {a.text}
-              </li>
-            ))}
-          </ul>
-        </motion.div>
+        <Reveal>
+          <GlassCard tilt tiltIntensity={4} className="h-full p-7">
+            <div className="mb-5 flex items-center gap-2">
+              <Award size={18} className="text-primary" />
+              <h3 className="font-head text-sm font-semibold uppercase tracking-wider text-primary">Awards</h3>
+            </div>
+            <ul className="space-y-3.5">
+              {awards.map((a, i) => (
+                <li key={i} className="flex gap-3 text-sm text-muted-foreground">
+                  <span className="mt-0.5 flex h-6 w-6 shrink-0 items-center justify-center rounded-md bg-primary/10 text-primary">
+                    <a.icon size={14} />
+                  </span>
+                  {a.text}
+                </li>
+              ))}
+            </ul>
+          </GlassCard>
+        </Reveal>
 
         {/* Certifications */}
-        <motion.div
-          className="bg-card-gradient border border-border rounded-lg p-6 shadow-card"
-          initial={{ opacity: 0, x: 20 }}
-          whileInView={{ opacity: 1, x: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.5 }}
-        >
-          <div className="flex items-center gap-2 mb-4">
-            <BookOpen size={18} className="text-primary" />
-            <h3 className="font-mono text-sm text-primary">Certifications</h3>
-          </div>
-          <ul className="space-y-3">
-            {certifications.map((c, i) => (
-              <li key={i} className="text-sm text-muted-foreground flex gap-2">
-                <ScrollText size={16} className="text-primary mt-0.5 shrink-0" /> {c}
-              </li>
-            ))}
-          </ul>
-        </motion.div>
-      </div>
+        <Reveal index={1}>
+          <GlassCard tilt tiltIntensity={4} className="h-full p-7">
+            <div className="mb-5 flex items-center gap-2">
+              <BookOpen size={18} className="text-primary" />
+              <h3 className="font-head text-sm font-semibold uppercase tracking-wider text-primary">Certifications</h3>
+            </div>
+            <ul className="space-y-3.5">
+              {certifications.map((c, i) => (
+                <li key={i} className="flex gap-3 text-sm text-muted-foreground">
+                  <span className="mt-0.5 flex h-6 w-6 shrink-0 items-center justify-center rounded-md bg-primary/10 text-primary">
+                    <ScrollText size={14} />
+                  </span>
+                  {c}
+                </li>
+              ))}
+            </ul>
 
-      {/* Research Interests */}
-      <motion.div
-        className="text-center"
-        initial={{ opacity: 0, y: 20 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true }}
-        transition={{ duration: 0.5 }}
-      >
-        <h3 className="font-mono text-sm text-primary mb-4 flex items-center justify-center gap-2"><FlaskConical size={16} /> Research Interests</h3>
-        <div className="flex flex-wrap justify-center gap-2">
-          {researchInterests.map((r) => (
-            <span
-              key={r}
-              className="px-4 py-1.5 text-xs rounded-full border border-glow text-primary bg-primary/5"
-            >
-              {r}
-            </span>
-          ))}
-        </div>
-      </motion.div>
+            <div className="mt-7 border-t border-border pt-5">
+              <h3 className="mb-3 flex items-center gap-2 font-head text-sm font-semibold uppercase tracking-wider text-primary">
+                <FlaskConical size={16} /> Research Interests
+              </h3>
+              <div className="flex flex-wrap gap-2">
+                {researchInterests.map((r) => (
+                  <span
+                    key={r}
+                    className="rounded-full border border-primary/20 bg-primary/5 px-3 py-1 text-xs text-primary"
+                  >
+                    {r}
+                  </span>
+                ))}
+              </div>
+            </div>
+          </GlassCard>
+        </Reveal>
+      </div>
     </div>
   </section>
 );

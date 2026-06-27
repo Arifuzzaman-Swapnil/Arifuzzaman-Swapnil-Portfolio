@@ -4,9 +4,9 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Md Arifuzzaman Swapnil</title>
+  <title>Md Arifuzzaman Swapnil — Backend AI Engineer & LLM Developer</title>
   <meta name="description"
-    content="Md Arifuzzaman Swapnil — Backend AI Engineer, Full Stack Python Developer, and AI Solutions Architect. Specializing in Django, FastAPI, RAG pipelines, LangChain, and production-grade AI systems. Currently at Intelleqt AI and Aesthetic Logic." />
+    content="Md Arifuzzaman Swapnil — Backend AI Engineer specialising in production RAG pipelines and LLM-powered applications. Scalable Python backends (Django, FastAPI, Celery, Redis) for live SaaS products across proptech and construction tech. Currently at Intelleqt AI and Aesthetic Logic." />
   <meta name="keywords"
     content="Md Arifuzzaman Swapnil, Arifuzzaman Swapnil, Backend AI Engineer, Full Stack Python Developer, AI Solutions Architect, Django Developer, FastAPI, RAG, LangChain, Machine Learning, NLP, AI Developer Bangladesh, Intelleqt AI, Aesthetic Logic, BUBT CSE" />
   <meta name="author" content="Md Arifuzzaman Swapnil" />
@@ -19,8 +19,8 @@
     @import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&family=Space+Grotesk:wght@300;400;500;600;700&display=swap');
 
     :root {
-      --background: 220 20% 4%;
-      --foreground: 210 20% 92%;
+      --background: 222 30% 3%;
+      --foreground: 210 22% 94%;
       --font-display: 'Space Grotesk', sans-serif;
       --font-mono: 'JetBrains Mono', monospace;
     }
@@ -42,45 +42,32 @@
 
     #root {
       min-height: 100vh;
-      padding: 2rem;
-      max-width: 1200px;
-      margin: 0 auto;
     }
 
-    h1, h2, h3, h4, h5, h6 {
+    /* Static fallback (crawlers / no-JS). React replaces #root contents on mount,
+       so these constraints never affect the live app. */
+    .crawler-fallback {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 2rem;
+    }
+
+    .crawler-fallback h1, .crawler-fallback h2, .crawler-fallback h3 {
       font-family: var(--font-display), sans-serif;
       font-weight: 600;
       margin-top: 1.5rem;
       margin-bottom: 0.75rem;
     }
 
-    h1 { font-size: 2.5rem; }
-    h2 { font-size: 2rem; }
-    h3 { font-size: 1.5rem; }
-
-    p { margin-bottom: 1rem; }
-
-    a {
-      color: hsl(175 80% 50%);
-      text-decoration: none;
-    }
-
-    a:hover {
-      text-decoration: underline;
-    }
-
-    section {
-      margin-bottom: 2rem;
-    }
-
-    ul {
-      margin-left: 1.5rem;
-      margin-bottom: 1rem;
-    }
-
-    li {
-      margin-bottom: 0.5rem;
-    }
+    .crawler-fallback h1 { font-size: 2.5rem; }
+    .crawler-fallback h2 { font-size: 2rem; }
+    .crawler-fallback h3 { font-size: 1.5rem; }
+    .crawler-fallback p { margin-bottom: 1rem; }
+    .crawler-fallback a { color: hsl(175 80% 50%); text-decoration: none; }
+    .crawler-fallback a:hover { text-decoration: underline; }
+    .crawler-fallback section { margin-bottom: 2rem; }
+    .crawler-fallback ul { margin-left: 1.5rem; margin-bottom: 1rem; }
+    .crawler-fallback li { margin-bottom: 0.5rem; }
   </style>
 
   <!-- SEO Meta Tags -->
@@ -130,9 +117,9 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
   <meta name="apple-mobile-web-app-title" content="Swapnil Portfolio" />
   <meta name="application-name" content="Md Arifuzzaman Swapnil Portfolio" />
-  <meta name="theme-color" content="#0a0a0f" />
-  <meta name="msapplication-TileColor" content="#0a0a0f" />
-  <meta name="msapplication-navbutton-color" content="#0a0a0f" />
+  <meta name="theme-color" content="#06080c" />
+  <meta name="msapplication-TileColor" content="#06080c" />
+  <meta name="msapplication-navbutton-color" content="#06080c" />
 
   <!-- Structured Data (JSON-LD) for Google Rich Results -->
   <script type="application/ld+json">
@@ -285,14 +272,15 @@
           "position": 3,
           "item": {
             "@type": "Role",
-            "roleName": "Full Stack Web Developer",
-            "startDate": "2025-05",
+            "roleName": "Full-Stack Python Web Developer / AI Engineer",
+            "startDate": "2025-01",
+            "endDate": "2026-02",
             "worksFor": {
               "@type": "Organization",
               "name": "Abedin Tech",
               "url": "https://abedintech.com"
             },
-            "description": "Building full-stack web applications using Python Flask and Django. Developing AI-powered websites integrating machine learning models. Creating AI automation pipelines and intelligent AI agents."
+            "description": "Built full-stack Python web applications and REST APIs with Celery background jobs. Created AI automations, agents, chatbots, and AI calling systems integrating GPT-4o, Claude, and Gemini. Integrated Stripe token-based billing with React + TypeScript frontends."
           }
         },
         {
@@ -301,14 +289,14 @@
           "item": {
             "@type": "Role",
             "roleName": "Teaching Assistant",
-            "startDate": "2025-01",
+            "startDate": "2024-10",
             "endDate": "2025-12",
             "worksFor": {
               "@type": "EducationalOrganization",
               "name": "Bangladesh University of Business and Technology",
               "url": "https://www.bubt.edu.bd"
             },
-            "description": "Teaching Machine Learning, Object-Oriented Programming (C++), and Advanced Programming (Java)"
+            "description": "Delivered lectures and labs in Object-Oriented Programming (C++), Artificial Intelligence, Machine Learning, and Neural Networks; mentored undergraduates through assignments, projects, and exam preparation."
           }
         }
       ]
@@ -356,11 +344,72 @@
       }
     }
     </script>
+
+  <!-- Professional Projects Structured Data -->
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "ItemList",
+      "name": "Professional Projects",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "item": {
+            "@type": "SoftwareApplication",
+            "name": "BaseLinq AI",
+            "url": "https://www.baselinq.ai/",
+            "applicationCategory": "Construction Project Management Platform",
+            "description": "Full-stack construction project management platform (React + TypeScript / Django REST + JWT) with contractual workflows, approval flows, and Linq AI — a RAG chatbot answering project and contract questions with clause-level cited references.",
+            "author": { "@type": "Person", "name": "Md Arifuzzaman Swapnil" }
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "item": {
+            "@type": "SoftwareApplication",
+            "name": "Sellanto",
+            "url": "https://www.yourbrandstar.com/",
+            "applicationCategory": "AI Social Media Automation Platform",
+            "description": "AI-powered SaaS automating content creation, scheduling, and publishing across 9 social networks using GPT-4o, Claude, and Gemini, with a RAG Messenger chatbot, Brand DNA engine, and dual Stripe + token billing.",
+            "author": { "@type": "Person", "name": "Md Arifuzzaman Swapnil" }
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "item": {
+            "@type": "SoftwareApplication",
+            "name": "HomePlus & TradePilot",
+            "url": "https://www.myhomeplus.io/",
+            "sameAs": ["https://www.mytradepilot.io/"],
+            "applicationCategory": "Proptech Marketplace",
+            "description": "React + Django/DRF platforms connecting homeowners with tradespeople, including a GPT-4o Vision pipeline that produces AI-driven EPC energy ratings from property documents.",
+            "author": { "@type": "Person", "name": "Md Arifuzzaman Swapnil" }
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 4,
+          "item": {
+            "@type": "SoftwareApplication",
+            "name": "TechStyles",
+            "url": "https://www.techstyles.ai/",
+            "applicationCategory": "Interior Design & Procurement Platform",
+            "description": "Full-stack interior-design lifecycle platform (Django REST + Next.js) with client/contractor portals, CRM, and finance modules integrated with Xero and AWS S3, plus OpenAI-driven features.",
+            "author": { "@type": "Person", "name": "Md Arifuzzaman Swapnil" }
+          }
+        }
+      ]
+    }
+    </script>
 </head>
 
 <body>
   <div id="root">
     <!-- Static fallback for AI bots & crawlers — React replaces this on mount -->
+    <div class="crawler-fallback">
     <header>
       <h1>Md Arifuzzaman Swapnil</h1>
       <p>Backend AI Engineer | Full Stack Python Developer | AI Solutions Architect</p>
@@ -440,7 +489,7 @@
       <article>
         <h3>Full Stack Web Developer</h3>
         <p><strong>Company:</strong> <a href="https://abedintech.com/our-team/" target="_blank" rel="noopener noreferrer">Abedin Tech</a></p>
-        <p><strong>Duration:</strong> May 2025 – Present</p>
+        <p><strong>Duration:</strong> Jan 2025 – Feb 2026</p>
         <p><strong>Responsibilities:</strong></p>
         <ul>
           <li>Built and deployed full-stack web applications using Python Flask, handling routing, templating, and REST API development</li>
@@ -453,18 +502,41 @@
       <article>
         <h3>Teaching Assistant (TA)</h3>
         <p><strong>Institution:</strong> <a href="https://www.bubt.edu.bd/" target="_blank" rel="noopener noreferrer">Bangladesh University of Business and Technology (BUBT)</a></p>
-        <p><strong>Duration:</strong> Jan 2025 – Dec 2025</p>
+        <p><strong>Duration:</strong> Oct 2024 – Dec 2025</p>
         <p><strong>Responsibilities:</strong></p>
         <ul>
-          <li>Conducted lectures and labs on Machine Learning (ML)</li>
-          <li>Taught Object-Oriented Programming (C++)</li>
-          <li>Taught Advanced Programming (Java)</li>
+          <li>Delivered lectures and hands-on labs in Object-Oriented Programming (C++), Artificial Intelligence, Machine Learning, and Neural Networks</li>
+          <li>Mentored undergraduate students through assignments, projects, and exam preparation</li>
         </ul>
       </article>
     </section>
 
     <section id="projects">
-      <h2>Personal Projects</h2>
+      <h2>Projects</h2>
+
+      <h3>Professional Projects (Live SaaS)</h3>
+
+      <article>
+        <h3><a href="https://www.baselinq.ai/" target="_blank" rel="noopener noreferrer">BaseLinq AI</a> — Construction Project Management Platform (Intelleqt AI)</h3>
+        <p>Full-stack platform (React + TypeScript / Django REST + JWT) for projects, tasks, and contractual workflows — Variation Orders, RFIs, Site Instructions, Delay Claims — with automated numbering, financial calculations, and approval flows. Role-based access control, cost tracking, web-push, and AI meeting transcription/summarisation (Recall.ai + Claude). Built Linq AI, a RAG chatbot answering project &amp; contract questions with clause-level cited references.</p>
+      </article>
+
+      <article>
+        <h3><a href="https://www.yourbrandstar.com/" target="_blank" rel="noopener noreferrer">Sellanto</a> — AI-Powered Social Media Automation Platform (Abedin Tech)</h3>
+        <p>SaaS platform automating AI-driven content creation, scheduling, and publishing across 9 social networks — GPT-4o, Claude, and Gemini for caption, image, and video generation plus a RAG Messenger chatbot. Django REST (JWT, Celery scheduling), React 19 + TypeScript frontend, a “Brand DNA” engine, engagement analytics, and dual billing (Stripe + token economy).</p>
+      </article>
+
+      <article>
+        <h3><a href="https://www.myhomeplus.io/" target="_blank" rel="noopener noreferrer">HomePlus</a> &amp; <a href="https://www.mytradepilot.io/" target="_blank" rel="noopener noreferrer">TradePilot</a> — Connecting Homeowners with Trusted Tradespeople (Intelleqt AI)</h3>
+        <p>HomePlus (React + Django/DRF) lets homeowners request, manage, and track home-improvement jobs with quote generation, job categorisation, and document uploads, plus a GPT-4o Vision pipeline that produces AI-driven EPC energy ratings. TradePilot is the companion app for tradespeople to receive, quote, and manage jobs in real time over a shared backend.</p>
+      </article>
+
+      <article>
+        <h3><a href="https://www.techstyles.ai/" target="_blank" rel="noopener noreferrer">TechStyles</a> — AI-Powered Design Studio &amp; Procurement Platform (Intelleqt AI)</h3>
+        <p>Full-stack platform managing the complete interior-design lifecycle — project phases, room-level planning, procurement, contractor coordination, and client approvals. Client &amp; contractor portals, a built-in CRM, and finance modules integrated with Xero and AWS S3. Django REST backend with a Next.js (TypeScript, Tailwind) frontend and OpenAI-driven features.</p>
+      </article>
+
+      <h3>Open-Source &amp; Academic Projects</h3>
 
       <article>
         <h3><a href="https://github.com/Arifuzzaman-Swapnil/Animal-Classification-CNN" target="_blank" rel="noopener noreferrer">Animal Image Classification Using CNN</a></h3>
@@ -576,6 +648,7 @@
       <p>&copy; 2026 Md Arifuzzaman Swapnil. All rights reserved.</p>
       <p>Portfolio Website: <a href="https://md-arifuzzaman-swapnil.vercel.app/">https://md-arifuzzaman-swapnil.vercel.app/</a></p>
     </footer>
+    </div>
   </div>
   <script type="module" src="/src/main.tsx"></script>
 </body>

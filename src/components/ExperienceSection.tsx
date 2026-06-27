@@ -1,96 +1,136 @@
-import { motion } from "framer-motion";
 import SectionHeader from "./SectionHeader";
-import { Briefcase } from "lucide-react";
+import Reveal from "./ui-custom/Reveal";
+import GlassCard from "./ui-custom/GlassCard";
+import { SectionDecor } from "./ui-custom/SectionDecor";
+import { Briefcase, ExternalLink } from "lucide-react";
 
 const experiences = [
-  {
-    title: "Teaching Assistant (TA)",
-    company: "BUBT",
-    companyUrl: "https://www.bubt.edu.bd/",
-    period: "Jan 2025 – Dec 2025",
-    points: [
-      "Conducted lectures and labs on Machine Learning (ML)",
-      "Object-Oriented Programming (C++)",
-      "Advanced Programming (Java)",
-    ],
-  },
-  {
-    title: "Full Stack Web Developer",
-    company: "Abedin Tech",
-    companyUrl: "https://abedintech.com/our-team/",
-    period: "May 2025 – February 2026",
-    points: [
-      "Built and deployed full-stack web applications using Python Flask, handling routing, templating, and REST API development",
-      "Developed Django-based AI-powered websites integrating machine learning models for intelligent features and data-driven functionalities",
-      "Designed and implemented AI automation pipelines to streamline repetitive business workflows, improving efficiency and reducing manual effort",
-      "Built intelligent AI agents, chatbots, and AI-powered calling systems to automate customer interactions and enhance user engagement",
-    ],
-  },
-  {
-    title: "Backend AI Developer",
-    company: "Intelleqt AI",
-    companyUrl: "https://www.intelleqt.ai/about",
-    period: "Feb 2026 – Present",
-    points: [
-      "Architected and maintained scalable Django backend systems powering AI-driven applications with robust API endpoints and data management",
-      "Developed and integrated production-ready AI models with a strong focus on Retrieval-Augmented Generation (RAG) pipelines for intelligent document processing and knowledge retrieval",
-      "Built end-to-end data ingestion and preprocessing pipelines for large-scale document corpora, enabling efficient vector search and semantic retrieval",
-      "Designed RESTful and WebSocket APIs to serve real-time AI predictions and conversational agents to enterprise clients",
-      "Collaborated with cross-functional teams to translate business requirements into technical AI solutions deployed safely at scale",
-    ],
-  },
   {
     title: "Lead AI Solutions Architect",
     company: "Aesthetic Logic",
     companyUrl: "https://aestheticlogic.com/about-us",
     period: "Apr 2026 – Present",
+    current: true,
     points: [
-      "Leading AI initiatives and architecting intelligent solutions that address complex, real-world business challenges across multiple domains",
-      "Designing and implementing end-to-end AI system architectures — from data pipelines to model serving — for scalable, production-grade applications",
+      "Leading AI initiatives and architecting intelligent solutions to complex, real-world business challenges across multiple domains",
+      "Designing end-to-end AI system architectures — from data pipelines to model serving — for scalable, production-grade applications",
       "Evaluating and integrating state-of-the-art LLMs, embedding models, and agentic frameworks into client-facing products",
-      "Defining AI strategy and technical roadmaps, ensuring alignment between business goals and engineering execution",
-      "Mentoring junior developers on best practices in AI/ML engineering, code quality, and system design",
+      "Defining AI strategy and technical roadmaps; mentoring developers on AI/ML engineering, code quality, and system design",
     ],
+    tags: ["AI Strategy", "LLMs", "Agentic AI", "System Design"],
+  },
+  {
+    title: "Backend AI Engineer",
+    company: "Intelleqt AI",
+    companyUrl: "https://www.intelleqt.ai/about",
+    period: "Feb 2026 – Present",
+    current: true,
+    points: [
+      "Build and scale Python backend services and REST APIs powering live SaaS products — HomePlus, TradePilot, and BaseLinq",
+      "Design RAG pipelines that answer questions over construction contracts and property documents with clause-level cited references",
+      "Develop custom chat models and LLM-powered AI agents, and engineer backend caching & scalability strategies (Redis) for high-traffic endpoints",
+      "Build intelligent chatbots and AI automation workflows integrated directly into customer-facing products",
+    ],
+    tags: ["Python", "Django REST", "RAG", "Redis", "LLM Agents"],
+  },
+  {
+    title: "Full-Stack Python Web Developer · AI Engineer",
+    company: "Abedin Tech",
+    companyUrl: "https://abedintech.com/our-team/",
+    period: "Jan 2025 – Feb 2026",
+    points: [
+      "Built and maintained full-stack Python web applications and scalable backend services end to end",
+      "Developed Python REST APIs, automation scripts, and background job pipelines (Celery)",
+      "Created AI automations, AI agents, chatbots, and AI calling systems integrating GPT-4o, Claude, and Gemini",
+      "Integrated Stripe payments with a token-based billing system and built responsive React + TypeScript frontends for customer-facing SaaS products",
+    ],
+    tags: ["Django", "Celery", "GPT-4o", "Stripe", "React + TS"],
+  },
+  {
+    title: "Teaching Assistant",
+    company: "BUBT",
+    companyUrl: "https://www.bubt.edu.bd/",
+    period: "Oct 2024 – Dec 2025",
+    points: [
+      "Delivered lectures and hands-on labs in Object-Oriented Programming (C++), Artificial Intelligence, Machine Learning, and Neural Networks",
+      "Mentored undergraduate students through assignments, projects, and exam preparation",
+    ],
+    tags: ["C++ / OOP", "AI", "Machine Learning", "Mentoring"],
   },
 ];
 
 const ExperienceSection = () => (
-  <section id="experience" className="py-24 px-6">
+  <section id="experience" className="relative flex min-h-full w-full items-center justify-center px-6 py-8 md:py-10">
+    <SectionDecor />
     <div className="container mx-auto max-w-4xl">
-      <SectionHeader tag="// experience" title="Work Experience" />
-      <div className="space-y-6">
+      <SectionHeader
+        index="03"
+        tag="// experience"
+        title="Work Experience"
+        subtitle="Shipping production AI across proptech, construction tech, and live SaaS."
+      />
+
+      <div className="relative space-y-6 before:absolute before:left-[27px] before:top-2 before:hidden before:h-[calc(100%-1rem)] before:w-px before:bg-gradient-to-b before:from-primary/50 before:via-primary/20 before:to-transparent md:before:block">
         {experiences.map((exp, i) => (
-          <motion.div
-            key={i}
-            className="bg-card-gradient border border-border rounded-lg p-6 shadow-card hover:border-glow transition-colors"
-            initial={{ opacity: 0, x: 30 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.5, delay: i * 0.15 }}
-          >
-            <div className="flex items-start gap-4">
-              <div className="p-2 rounded-md bg-primary/10 text-primary mt-1">
-                <Briefcase size={20} />
+          <Reveal key={i} index={i}>
+            <GlassCard tilt tiltIntensity={4} className="p-5 md:p-6 md:pl-20">
+              {/* Timeline node */}
+              <div className="absolute left-[14px] top-7 hidden h-7 w-7 items-center justify-center rounded-full bg-primary/15 text-primary ring-4 ring-background md:flex">
+                <Briefcase size={14} />
               </div>
-              <div className="flex-1">
-                <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-1">
-                  <h3 className="text-lg font-semibold">
-                    {exp.title}{" "}
-                    <a href={exp.companyUrl} target="_blank" rel="noopener noreferrer" className="text-muted-foreground font-normal hover:text-primary transition-colors">@ {exp.company}</a>
-                  </h3>
-                  <span className="font-mono text-xs text-primary">{exp.period}</span>
+
+              {/* Header: icon sits beside the title only */}
+              <div className="flex items-start gap-3">
+                <div className="shrink-0 rounded-lg bg-primary/10 p-2 text-primary md:hidden">
+                  <Briefcase size={18} />
                 </div>
-                <ul className="mt-3 space-y-2">
-                  {exp.points.map((point, j) => (
-                    <li key={j} className="text-sm text-muted-foreground flex gap-2">
-                      <span className="text-primary mt-1">▹</span>
-                      {point}
-                    </li>
-                  ))}
-                </ul>
+                <div className="flex flex-1 flex-col gap-1.5 md:flex-row md:items-start md:justify-between">
+                  <h3 className="font-head text-base font-semibold md:text-lg">
+                    {exp.title}{" "}
+                    <a
+                      href={exp.companyUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center gap-1 font-normal text-muted-foreground transition-colors hover:text-foreground"
+                    >
+                      @ {exp.company}
+                      <ExternalLink size={13} />
+                    </a>
+                  </h3>
+                  <span
+                    className={`w-fit shrink-0 rounded-full px-2.5 py-0.5 font-mono text-xs ${
+                      exp.current
+                        ? "bg-emerald-400/10 text-emerald-300"
+                        : "bg-primary/10 text-primary"
+                    }`}
+                  >
+                    {exp.period}
+                  </span>
+                </div>
               </div>
-            </div>
-          </motion.div>
+
+              {/* Bullets — full width, minimal left padding */}
+              <ul className="mt-3 space-y-2">
+                {exp.points.map((point, j) => (
+                  <li key={j} className="flex gap-2 text-sm text-muted-foreground">
+                    <span className="mt-1 shrink-0 text-primary">▹</span>
+                    <span>{point}</span>
+                  </li>
+                ))}
+              </ul>
+
+              <div className="mt-4 flex flex-wrap gap-2">
+                {exp.tags.map((t) => (
+                  <span
+                    key={t}
+                    className="rounded-md border border-border bg-background/40 px-2 py-1 font-mono text-[11px] text-muted-foreground"
+                  >
+                    {t}
+                  </span>
+                ))}
+              </div>
+            </GlassCard>
+          </Reveal>
         ))}
       </div>
     </div>
