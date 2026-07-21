@@ -70,18 +70,18 @@ const ExperienceSection = () => (
         subtitle="Shipping production AI across proptech, construction tech, and live SaaS."
       />
 
-      <div className="relative space-y-6 before:absolute before:left-[27px] before:top-2 before:hidden before:h-[calc(100%-1rem)] before:w-px before:bg-gradient-to-b before:from-primary/50 before:via-primary/20 before:to-transparent md:before:block">
+      <div className="relative space-y-5 before:absolute before:left-[27px] before:top-2 before:hidden before:h-[calc(100%-1rem)] before:w-px before:bg-border md:before:block">
         {experiences.map((exp, i) => (
           <Reveal key={i} index={i}>
-            <GlassCard tilt tiltIntensity={4} className="p-5 md:p-6 md:pl-20">
+            <GlassCard className="p-5 md:p-6 md:pl-20">
               {/* Timeline node */}
-              <div className="absolute left-[14px] top-7 hidden h-7 w-7 items-center justify-center rounded-full bg-primary/15 text-primary ring-4 ring-background md:flex">
+              <div className="absolute left-[14px] top-6 hidden h-7 w-7 items-center justify-center rounded-full border border-border bg-card text-muted-foreground ring-4 ring-background md:flex">
                 <Briefcase size={14} />
               </div>
 
               {/* Header: icon sits beside the title only */}
               <div className="flex items-start gap-3">
-                <div className="shrink-0 rounded-lg bg-primary/10 p-2 text-primary md:hidden">
+                <div className="shrink-0 rounded-lg bg-secondary p-2 text-muted-foreground md:hidden">
                   <Briefcase size={18} />
                 </div>
                 <div className="flex flex-1 flex-col gap-1.5 md:flex-row md:items-start md:justify-between">
@@ -97,13 +97,8 @@ const ExperienceSection = () => (
                       <ExternalLink size={13} />
                     </a>
                   </h3>
-                  <span
-                    className={`w-fit shrink-0 rounded-full px-2.5 py-0.5 font-mono text-xs ${
-                      exp.current
-                        ? "bg-emerald-400/10 text-emerald-300"
-                        : "bg-primary/10 text-primary"
-                    }`}
-                  >
+                  <span className="tnum flex w-fit shrink-0 items-center gap-1.5 font-mono text-xs text-muted-foreground">
+                    {exp.current && <span className="h-1.5 w-1.5 rounded-full bg-primary" />}
                     {exp.period}
                   </span>
                 </div>
@@ -112,8 +107,8 @@ const ExperienceSection = () => (
               {/* Bullets — full width, minimal left padding */}
               <ul className="mt-3 space-y-2">
                 {exp.points.map((point, j) => (
-                  <li key={j} className="flex gap-2 text-sm text-muted-foreground">
-                    <span className="mt-1 shrink-0 text-primary">▹</span>
+                  <li key={j} className="flex gap-2.5 text-sm text-muted-foreground">
+                    <span className="mt-2 h-1 w-1 shrink-0 rounded-full bg-muted-foreground/50" />
                     <span>{point}</span>
                   </li>
                 ))}

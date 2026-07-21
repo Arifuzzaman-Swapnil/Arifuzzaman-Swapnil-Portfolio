@@ -32,26 +32,26 @@ const EducationSection = () => (
     <div className="container mx-auto max-w-4xl">
       <SectionHeader index="02" tag="// education" title="Academic Background" />
 
-      <div className="relative space-y-6 before:absolute before:left-[27px] before:top-2 before:hidden before:h-[calc(100%-1rem)] before:w-px before:bg-gradient-to-b before:from-primary/50 before:via-primary/20 before:to-transparent md:before:block">
+      <div className="relative space-y-5 before:absolute before:left-[27px] before:top-2 before:hidden before:h-[calc(100%-1rem)] before:w-px before:bg-border md:before:block">
         {educationData.map((edu, i) => (
           <Reveal key={i} index={i}>
-            <GlassCard tilt tiltIntensity={5} className="p-6 md:pl-20">
+            <GlassCard className="p-5 md:p-6 md:pl-20">
               {/* Timeline node */}
-              <div className="absolute left-[14px] top-7 hidden h-7 w-7 items-center justify-center rounded-full bg-primary/15 text-primary ring-4 ring-background md:flex">
+              <div className="absolute left-[14px] top-6 hidden h-7 w-7 items-center justify-center rounded-full border border-border bg-card text-muted-foreground ring-4 ring-background md:flex">
                 <GraduationCap size={15} />
               </div>
-              <div className="flex items-start gap-4">
-                <div className="rounded-xl bg-primary/10 p-2.5 text-primary md:hidden">
-                  <GraduationCap size={20} />
+              <div className="flex items-start gap-3">
+                <div className="rounded-lg bg-secondary p-2 text-muted-foreground md:hidden">
+                  <GraduationCap size={18} />
                 </div>
                 <div className="flex-1">
                   <div className="flex flex-col gap-1 md:flex-row md:items-center md:justify-between">
-                    <h3 className="font-head text-lg font-semibold">{edu.degree}</h3>
-                    <span className="font-mono text-xs text-primary">{edu.year}</span>
+                    <h3 className="text-base font-semibold text-foreground md:text-lg">{edu.degree}</h3>
+                    <span className="font-mono text-xs text-muted-foreground">{edu.year}</span>
                   </div>
                   {edu.detail && <p className="text-sm text-muted-foreground">{edu.detail}</p>}
                   <p className="mt-1 text-sm text-muted-foreground">{edu.institution}</p>
-                  <p className="mt-2 inline-block rounded-md bg-primary/10 px-2 py-0.5 text-sm font-semibold text-primary">
+                  <p className="tnum mt-2.5 inline-block rounded-md border border-border px-2 py-0.5 text-sm font-medium text-foreground">
                     {edu.grade}
                   </p>
                 </div>

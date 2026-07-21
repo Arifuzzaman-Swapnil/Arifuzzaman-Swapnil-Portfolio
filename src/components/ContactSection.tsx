@@ -21,41 +21,40 @@ const ContactSection = () => (
       <SectionHeader index="07" tag="// contact" title="Let's Build Something" />
 
       <Reveal>
-        <div className="glass-strong glow-ring relative overflow-hidden rounded-3xl p-8 md:p-12">
-          <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(60%_120%_at_50%_0%,hsl(175_82%_52%/0.12),transparent_70%)]" />
-          <h3 className="relative mx-auto max-w-2xl font-head text-2xl font-bold md:text-3xl">
+        <div className="surface rounded-2xl p-8 md:p-12">
+          <h3 className="mx-auto max-w-2xl text-2xl font-semibold tracking-tight text-foreground md:text-3xl">
             Have an AI product to ship?{" "}
-            <span className="text-aurora animate-aurora">Let&apos;s talk.</span>
+            <span className="text-primary">Let&apos;s talk.</span>
           </h3>
-          <p className="relative mx-auto mt-3 max-w-xl text-sm text-muted-foreground md:text-base">
+          <p className="mx-auto mt-3 max-w-xl text-sm leading-relaxed text-muted-foreground md:text-base">
             Backend AI Engineer specialising in production RAG pipelines and LLM-powered products.
             Open to collaborations and opportunities in AI/ML engineering.
           </p>
 
-          <div className="relative mt-8 flex flex-wrap justify-center gap-4">
+          <div className="mt-8 flex flex-wrap justify-center gap-3">
             <a
               href="mailto:md.arifuzzamanswapnil@gmail.com"
-              className="inline-flex items-center gap-2 rounded-xl bg-gradient-to-r from-primary to-accent px-6 py-3 font-semibold text-primary-foreground shadow-glow transition-transform hover:scale-[1.03]"
+              className="press inline-flex h-10 items-center gap-2 rounded-lg bg-primary px-5 text-sm font-medium text-primary-foreground shadow-sm transition-colors hover:bg-primary/90"
             >
-              <Mail size={18} /> Get in touch
+              <Mail size={16} /> Get in touch
             </a>
             <a
               href={CV_URL}
               download
-              className="glass inline-flex items-center gap-2 rounded-xl px-6 py-3 font-medium text-foreground transition-colors hover:text-foreground"
+              className="press inline-flex h-10 items-center gap-2 rounded-lg border border-border px-5 text-sm font-medium text-foreground transition-colors hover:bg-secondary"
             >
-              <FileDown size={18} /> Download CV
+              <FileDown size={16} /> Download CV
             </a>
           </div>
 
-          <div className="relative mt-8 flex justify-center gap-3">
+          <div className="mt-8 flex justify-center gap-2.5">
             {socials.map((s) => (
               <a
                 key={s.title}
                 href={s.href}
                 target={s.external ? "_blank" : undefined}
                 rel={s.external ? "noopener noreferrer" : undefined}
-                className="glass rounded-xl p-2.5 text-muted-foreground transition-colors hover:text-foreground"
+                className="press rounded-lg border border-border p-2.5 text-muted-foreground transition-colors hover:bg-secondary hover:text-foreground"
                 title={s.title}
               >
                 <s.icon size={18} />
@@ -66,7 +65,7 @@ const ContactSection = () => (
       </Reveal>
 
       <Reveal index={1}>
-        <div className="mt-8 flex flex-col items-center justify-between gap-2 text-xs text-muted-foreground sm:flex-row">
+        <div className="mt-8 flex flex-col items-center justify-between gap-2 border-t border-border pt-6 text-xs text-muted-foreground sm:flex-row">
           <span>&copy; {new Date().getFullYear()} Md Arifuzzaman Swapnil. All rights reserved.</span>
           <a
             href="https://arifuzzaman-swapnil-portfolio.com"

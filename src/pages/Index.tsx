@@ -6,7 +6,6 @@ import ProjectsSection from "@/components/ProjectsSection";
 import SkillsSection from "@/components/SkillsSection";
 import AwardsSection from "@/components/AwardsSection";
 import ContactSection from "@/components/ContactSection";
-import GrainOverlay from "@/components/ui-custom/GrainOverlay";
 import Deck from "@/components/deck/Deck";
 
 const pages = [
@@ -22,7 +21,6 @@ const pages = [
 
 const Index = () => (
   <div className="relative h-full">
-    <GrainOverlay />
     <Deck pages={pages} />
   </div>
 );

@@ -1,14 +1,9 @@
 /**
- * Faint engineering-blueprint grid that sits behind a section's content.
- * Drop as the first child of a `relative` section.
+ * Decorative backdrops were removed for the minimal design. Kept as no-ops so
+ * existing imports/usages don't break.
  */
-export const SectionDecor = () => (
-  <div aria-hidden className="bg-blueprint pointer-events-none absolute inset-0 -z-10" />
-);
+export const SectionDecor = () => null;
 
-/**
- * Hairline divider with a small diamond node, used between major sections.
- */
 export const SectionDivider = () => (
   <div className="container mx-auto max-w-6xl px-6">
     <div className="divider-blueprint" />

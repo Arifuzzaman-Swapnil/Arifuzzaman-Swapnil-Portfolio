@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&family=Sora:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@300;400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap');
 
 @tailwind base;
 @tailwind components;
@@ -6,66 +6,53 @@
 
 @layer base {
   :root {
-    /* Deep-space premium base */
-    --background: 222 30% 3%;
-    --foreground: 210 22% 94%;
+    /* Refined dark neutral */
+    --background: 240 6% 5%;
+    --foreground: 240 6% 93%;
 
-    --card: 222 24% 6%;
-    --card-foreground: 210 22% 94%;
+    --card: 240 5% 9%;
+    --card-foreground: 240 6% 93%;
 
-    --popover: 222 26% 5%;
-    --popover-foreground: 210 22% 94%;
+    --popover: 240 5% 8%;
+    --popover-foreground: 240 6% 93%;
 
-    /* Cyan brand (kept) */
-    --primary: 175 82% 52%;
-    --primary-foreground: 222 30% 3%;
+    /* Single accent — calm blue #3B82F6 */
+    --primary: 217 91% 60%;
+    --primary-foreground: 0 0% 100%;
 
-    /* Violet accent (new) */
-    --violet: 265 85% 66%;
-    --violet-foreground: 210 22% 96%;
+    --secondary: 240 5% 14%;
+    --secondary-foreground: 240 6% 90%;
 
-    --secondary: 222 18% 12%;
-    --secondary-foreground: 210 20% 86%;
+    --muted: 240 5% 12%;
+    --muted-foreground: 240 5% 60%;
 
-    --muted: 222 16% 11%;
-    --muted-foreground: 215 16% 58%;
+    --accent: 240 5% 14%;
+    --accent-foreground: 240 6% 93%;
 
-    --accent: 175 62% 42%;
-    --accent-foreground: 210 22% 96%;
+    --destructive: 0 72% 55%;
+    --destructive-foreground: 0 0% 100%;
 
-    --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 210 40% 98%;
+    --border: 240 5% 15%;
+    --input: 240 5% 15%;
+    --ring: 217 91% 60%;
 
-    --border: 222 16% 15%;
-    --input: 222 16% 15%;
-    --ring: 175 82% 52%;
+    --radius: 0.625rem;
 
-    --radius: 0.9rem;
+    --shadow-card: 0 1px 2px hsl(0 0% 0% / 0.3), 0 8px 24px -14px hsl(0 0% 0% / 0.55);
 
-    /* Gradients */
-    --gradient-primary: linear-gradient(135deg, hsl(175 82% 52%), hsl(190 90% 48%));
-    --gradient-aurora: linear-gradient(120deg, hsl(175 82% 52%) 0%, hsl(200 90% 56%) 45%, hsl(265 85% 66%) 100%);
-    --gradient-card: linear-gradient(150deg, hsl(222 24% 9% / 0.9), hsl(222 26% 5% / 0.85));
-    --gradient-hero: radial-gradient(120% 90% at 50% 0%, hsl(222 26% 7%) 0%, hsl(222 30% 3%) 60%, hsl(222 32% 2%) 100%);
-
-    /* Glows / shadows */
-    --glow-cyan: 0 0 40px -8px hsl(175 82% 52% / 0.45);
-    --glow-violet: 0 0 44px -8px hsl(265 85% 66% / 0.4);
-    --shadow-glow: 0 0 30px -5px hsl(175 82% 52% / 0.18);
-    --shadow-card: 0 18px 50px -22px hsl(222 60% 2% / 0.9), 0 2px 8px -4px hsl(0 0% 0% / 0.5);
-
-    --font-display: 'Space Grotesk', 'Sora', sans-serif;
-    --font-head: 'Sora', 'Space Grotesk', sans-serif;
+    --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    --font-display: var(--font-sans);
+    --font-head: var(--font-sans);
     --font-mono: 'JetBrains Mono', monospace;
 
-    --sidebar-background: 222 24% 6%;
-    --sidebar-foreground: 210 22% 94%;
-    --sidebar-primary: 175 82% 52%;
-    --sidebar-primary-foreground: 222 30% 3%;
-    --sidebar-accent: 222 18% 12%;
-    --sidebar-accent-foreground: 210 22% 94%;
-    --sidebar-border: 222 16% 15%;
-    --sidebar-ring: 175 82% 52%;
+    --sidebar-background: 240 5% 9%;
+    --sidebar-foreground: 240 6% 93%;
+    --sidebar-primary: 217 91% 60%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 240 5% 14%;
+    --sidebar-accent-foreground: 240 6% 93%;
+    --sidebar-border: 240 5% 15%;
+    --sidebar-ring: 217 91% 60%;
   }
 }
 
@@ -82,7 +69,8 @@
 
   body {
     @apply bg-background text-foreground;
-    font-family: var(--font-display);
+    font-family: var(--font-sans);
+    font-feature-settings: "cv11", "ss01";
     -webkit-font-smoothing: antialiased;
     text-rendering: optimizeLegibility;
     /* Deck owns the viewport — no document scroll */
@@ -90,200 +78,120 @@
   }
 
   h1, h2, h3, h4, h5, h6 {
-    font-family: var(--font-head);
-    letter-spacing: -0.01em;
+    font-family: var(--font-sans);
+    letter-spacing: -0.025em;
+    font-weight: 600;
+  }
+
+  /* Visible, consistent keyboard focus */
+  :focus-visible {
+    outline: 2px solid hsl(var(--ring));
+    outline-offset: 2px;
+    border-radius: 4px;
   }
 
   code, .font-mono {
     font-family: var(--font-mono);
   }
 
-  /* Custom selection */
   ::selection {
-    background: hsl(175 82% 52% / 0.28);
-    color: hsl(210 22% 96%);
+    background: hsl(217 91% 60% / 0.25);
+    color: hsl(240 6% 96%);
   }
 
-  /* Themed scrollbar */
   ::-webkit-scrollbar {
-    width: 10px;
-    height: 10px;
+    width: 8px;
+    height: 8px;
   }
   ::-webkit-scrollbar-track {
-    background: hsl(222 28% 4%);
+    background: transparent;
   }
   ::-webkit-scrollbar-thumb {
-    background: linear-gradient(hsl(175 82% 52% / 0.5), hsl(265 85% 66% / 0.5));
+    background: hsl(240 5% 22%);
     border-radius: 999px;
-    border: 2px solid hsl(222 28% 4%);
   }
   ::-webkit-scrollbar-thumb:hover {
-    background: linear-gradient(hsl(175 82% 52% / 0.8), hsl(265 85% 66% / 0.8));
+    background: hsl(240 5% 30%);
   }
 }
 
 @layer utilities {
-  .text-gradient {
-    @apply bg-clip-text text-transparent;
-    background-image: var(--gradient-primary);
+  /* Flat surface — hairline border + near-invisible top highlight for depth */
+  .glass,
+  .glass-strong,
+  .surface {
+    background: hsl(var(--card));
+    border: 1px solid hsl(var(--border));
+    box-shadow:
+      inset 0 1px 0 hsl(0 0% 100% / 0.04),
+      0 1px 2px hsl(0 0% 0% / 0.2);
   }
 
+  /* Neutral top-light: subtle dimension behind the whole deck */
+  .page-light {
+    background:
+      radial-gradient(90% 70% at 50% -20%, hsl(240 6% 9%) 0%, transparent 60%),
+      hsl(var(--background));
+  }
+
+  /* Fast press feedback for buttons/links */
+  .press {
+    transition: transform 0.12s ease;
+  }
+  .press:active {
+    transform: scale(0.98);
+  }
+
+  .rule {
+    height: 1px;
+    background: hsl(var(--border));
+  }
+
+  .tnum {
+    font-variant-numeric: tabular-nums;
+  }
+
+  /* Gradient text tokens flattened to solid */
+  .text-gradient,
   .text-aurora {
-    @apply bg-clip-text text-transparent;
-    background-image: var(--gradient-aurora);
-    background-size: 200% auto;
-  }
-
-  .border-glow {
-    border-color: hsl(175 82% 52% / 0.3);
+    color: hsl(var(--foreground));
   }
 
   .bg-card-gradient {
-    background: var(--gradient-card);
-  }
-
-  .bg-hero-gradient {
-    background: var(--gradient-hero);
-  }
-
-  .shadow-glow {
-    box-shadow: var(--shadow-glow);
+    background: hsl(var(--card));
   }
 
   .shadow-card {
     box-shadow: var(--shadow-card);
   }
 
-  .glow-cyan {
-    box-shadow: var(--glow-cyan);
-  }
-
-  .glow-violet {
-    box-shadow: var(--glow-violet);
-  }
-
-  /* Glassmorphism */
-  .glass {
-    background: hsl(222 30% 10% / 0.45);
-    backdrop-filter: blur(16px) saturate(140%);
-    -webkit-backdrop-filter: blur(16px) saturate(140%);
-    border: 1px solid hsl(0 0% 100% / 0.08);
-    box-shadow:
-      inset 0 1px 0 0 hsl(0 0% 100% / 0.06),
-      var(--shadow-card);
-  }
-
-  .glass-strong {
-    background: hsl(222 30% 11% / 0.7);
-    backdrop-filter: blur(22px) saturate(150%);
-    -webkit-backdrop-filter: blur(22px) saturate(150%);
-    border: 1px solid hsl(0 0% 100% / 0.1);
-    box-shadow:
-      inset 0 1px 0 0 hsl(0 0% 100% / 0.08),
-      var(--shadow-card);
-  }
-
-  /* Gradient hairline border via mask */
-  .glow-ring {
-    position: relative;
-  }
-  .glow-ring::before {
-    content: "";
-    position: absolute;
-    inset: 0;
-    border-radius: inherit;
-    padding: 1px;
-    background: var(--gradient-aurora);
-    -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
-    -webkit-mask-composite: xor;
-    mask-composite: exclude;
-    opacity: 0.4;
-    pointer-events: none;
-  }
-
-  /* Faint dotted grid backdrop */
-  .bg-grid {
-    background-image: radial-gradient(hsl(175 82% 52% / 0.08) 1px, transparent 1px);
-    background-size: 28px 28px;
-  }
-
-  .animate-aurora {
-    animation: aurora-pan 8s ease infinite;
-  }
-
-  .animate-float {
-    animation: float 6s ease-in-out infinite;
-  }
-
-  .animate-shimmer {
-    background-size: 200% auto;
-    animation: shimmer 3.5s linear infinite;
-  }
-
-  .will-3d {
-    transform-style: preserve-3d;
-  }
-
-  .perspective {
-    perspective: 1000px;
-  }
-
-  /* ---- Engineering-blueprint graphic language ---- */
-
-  /* Fine technical grid — apply to an absolutely-positioned decor layer */
-  .bg-blueprint {
-    background-image:
-      linear-gradient(to right, hsl(210 40% 80% / 0.045) 1px, transparent 1px),
-      linear-gradient(to bottom, hsl(210 40% 80% / 0.045) 1px, transparent 1px);
-    background-size: 46px 46px;
-    -webkit-mask-image: radial-gradient(75% 60% at 50% 35%, #000 0%, transparent 100%);
-    mask-image: radial-gradient(75% 60% at 50% 35%, #000 0%, transparent 100%);
-  }
-
-  /* Thin top hairline accent for cards (uses ::after so it can coexist with
-     .glow-ring's ::before) */
-  .card-accent::after {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 1.25rem;
-    right: 1.25rem;
-    height: 1px;
-    background: linear-gradient(90deg, transparent, hsl(175 82% 52% / 0.6), transparent);
-    pointer-events: none;
-  }
-
-  /* Hairline divider with a small center node — for section separators */
+  /* Plain hairline divider */
   .divider-blueprint {
-    position: relative;
     height: 1px;
-    background: linear-gradient(90deg, transparent, hsl(var(--border)) 20%, hsl(var(--border)) 80%, transparent);
-  }
-  .divider-blueprint::after {
-    content: "";
-    position: absolute;
-    left: 50%;
-    top: 50%;
-    width: 6px;
-    height: 6px;
-    transform: translate(-50%, -50%) rotate(45deg);
-    background: hsl(175 82% 52% / 0.7);
-    box-shadow: 0 0 12px hsl(175 82% 52% / 0.5);
+    background: hsl(var(--border));
   }
 
-  /* Elevation hover (motion/depth only — no colour shift) */
+  /* Subtle elevation on hover — no colour shift */
   .hover-lift {
-    transition: transform 0.3s cubic-bezier(0.22, 1, 0.36, 1), box-shadow 0.3s ease;
+    transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
   }
   .hover-lift:hover {
-    transform: translateY(-4px);
-    box-shadow:
-      0 28px 60px -28px hsl(222 60% 2% / 0.95),
-      0 6px 16px -8px hsl(0 0% 0% / 0.5);
+    transform: translateY(-2px);
+    border-color: hsl(240 5% 22%);
+    box-shadow: var(--shadow-card);
+  }
+
+  /* Legacy decorative hooks kept as no-ops so stray classes don't break layout */
+  .glow-ring,
+  .card-accent,
+  .bg-blueprint,
+  .bg-grid,
+  .border-glow,
+  .shadow-glow {
+    /* intentionally empty */
   }
 }
 
-/* Reduced-motion: freeze ambient animation */
 @media (prefers-reduced-motion: reduce) {
   *,
   *::before,
@@ -291,6 +199,5 @@
     animation-duration: 0.001ms !important;
     animation-iteration-count: 1 !important;
     transition-duration: 0.001ms !important;
-    scroll-behavior: auto !important;
   }
 }

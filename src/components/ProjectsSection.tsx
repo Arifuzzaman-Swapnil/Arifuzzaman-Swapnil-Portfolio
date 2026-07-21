@@ -15,7 +15,6 @@ import {
   Newspaper,
   ExternalLink,
   Github,
-  Sparkles,
 } from "lucide-react";
 
 const professional = [
@@ -78,52 +77,50 @@ const ProjectsSection = () => (
 
       {/* Professional */}
       <Reveal>
-        <div className="mb-6 flex items-center gap-3">
-          <Sparkles size={18} className="text-primary" />
-          <h3 className="font-head text-xl font-semibold">Professional Projects</h3>
-          <span className="rounded-full bg-emerald-400/10 px-2.5 py-0.5 font-mono text-[11px] text-emerald-300">
-            Live SaaS
-          </span>
-          <div className="h-px flex-1 bg-gradient-to-r from-border to-transparent" />
+        <div className="mb-5 flex items-center gap-3">
+          <h3 className="text-sm font-semibold uppercase tracking-wider text-foreground">
+            Professional Projects
+          </h3>
+          <div className="h-px flex-1 bg-border" />
         </div>
       </Reveal>
 
-      <div className="mb-16 grid gap-6 md:grid-cols-2">
+      <div className="mb-14 grid gap-5 md:grid-cols-2">
         {professional.map((p, i) => (
           <Reveal key={p.title} index={i}>
-            <GlassCard tilt tiltIntensity={6} className="flex h-full flex-col p-7">
+            <GlassCard className="flex h-full flex-col p-6">
               <div className="mb-4 flex items-start justify-between">
-                <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-gradient-to-br from-primary/20 to-violet/20 text-primary ring-1 ring-primary/20">
-                  <p.icon size={24} />
+                <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-secondary text-muted-foreground">
+                  <p.icon size={20} />
                 </div>
-                <span className="inline-flex items-center gap-1.5 rounded-full bg-emerald-400/10 px-2.5 py-0.5 font-mono text-[10px] uppercase tracking-wider text-emerald-300">
-                  <span className="h-1.5 w-1.5 rounded-full bg-emerald-400" /> Live
+                <span className="inline-flex items-center gap-1.5 font-mono text-[10px] uppercase tracking-wider text-muted-foreground">
+                  <span className="h-1.5 w-1.5 rounded-full bg-emerald-500" /> Live
                 </span>
               </div>
-              <h4 className="font-head text-xl font-bold text-foreground">{p.title}</h4>
-              <p className="mt-0.5 font-mono text-xs text-primary">{p.subtitle}</p>
+              <h4 className="text-lg font-semibold text-foreground">{p.title}</h4>
+              <p className="mt-1 text-xs text-muted-foreground">{p.subtitle}</p>
               <p className="mt-3 flex-1 text-sm leading-relaxed text-muted-foreground">{p.desc}</p>
-              <div className="mt-5 flex flex-wrap gap-2">
+              <div className="mt-4 flex flex-wrap gap-1.5">
                 {p.tags.map((t) => (
                   <span
                     key={t}
-                    className="rounded-md border border-border bg-background/40 px-2 py-1 font-mono text-[11px] text-muted-foreground"
+                    className="rounded-md border border-border px-2 py-0.5 font-mono text-[11px] text-muted-foreground"
                   >
                     {t}
                   </span>
                 ))}
               </div>
-              <div className="mt-5 flex flex-wrap gap-2 border-t border-border pt-4">
+              <div className="mt-4 flex flex-wrap gap-2 border-t border-border pt-4">
                 {p.links.map((l) => (
                   <a
                     key={l.url}
                     href={l.url}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="group/link inline-flex items-center gap-1.5 rounded-lg border border-primary/30 bg-primary/5 px-3 py-1.5 text-xs font-medium text-primary transition-colors hover:bg-foreground/[0.06]"
+                    className="inline-flex items-center gap-1.5 text-sm font-medium text-primary transition-colors hover:text-primary/80"
                   >
                     {l.label}
-                    <ExternalLink size={13} className="transition-transform group-hover/link:translate-x-0.5" />
+                    <ExternalLink size={13} />
                   </a>
                 ))}
               </div>
@@ -134,19 +131,20 @@ const ProjectsSection = () => (
 
       {/* Academic / Open-source */}
       <Reveal>
-        <div className="mb-6 flex items-center gap-3">
-          <Github size={18} className="text-primary" />
-          <h3 className="font-head text-xl font-semibold">Open-Source &amp; Academic</h3>
-          <div className="h-px flex-1 bg-gradient-to-r from-border to-transparent" />
+        <div className="mb-5 flex items-center gap-3">
+          <h3 className="text-sm font-semibold uppercase tracking-wider text-foreground">
+            Open-Source &amp; Academic
+          </h3>
+          <div className="h-px flex-1 bg-border" />
         </div>
       </Reveal>
 
-      <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+      <div className="grid gap-5 md:grid-cols-2 lg:grid-cols-3">
         {academic.map((p, i) => (
           <Reveal key={p.title} index={i}>
-            <GlassCard tilt tiltIntensity={7} className="flex h-full flex-col p-6">
-              <div className="mb-4 flex items-center justify-between">
-                <p.icon size={26} className="text-primary" />
+            <GlassCard className="flex h-full flex-col p-5">
+              <div className="mb-3 flex items-center justify-between">
+                <p.icon size={22} className="text-muted-foreground" />
                 {p.link && (
                   <a
                     href={p.link}
@@ -154,12 +152,12 @@ const ProjectsSection = () => (
                     rel="noopener noreferrer"
                     className="text-muted-foreground transition-colors hover:text-foreground"
                   >
-                    <Github size={18} />
+                    <Github size={16} />
                   </a>
                 )}
               </div>
-              <h4 className="font-head text-base font-semibold text-foreground">{p.title}</h4>
-              <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{p.desc}</p>
+              <h4 className="text-sm font-semibold text-foreground">{p.title}</h4>
+              <p className="mt-1.5 text-sm leading-relaxed text-muted-foreground">{p.desc}</p>
             </GlassCard>
           </Reveal>
         ))}

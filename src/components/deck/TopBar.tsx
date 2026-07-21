@@ -10,15 +10,16 @@ const TopBar = () => {
   const [open, setOpen] = useState(false);
 
   return (
-    <header className="relative z-40 shrink-0">
-      <div className="mx-auto flex max-w-6xl items-center justify-between px-5 py-3">
-        <button onClick={() => goTo(0)} className="font-mono text-lg font-bold text-primary">
-          {"<AS"}
-          <span className="text-violet">{" /"}</span>
-          {">"}
+    <header className="relative z-40 shrink-0 border-b border-border">
+      <div className="mx-auto flex max-w-6xl items-center justify-between px-5 py-3.5">
+        <button
+          onClick={() => goTo(0)}
+          className="text-sm font-semibold tracking-tight text-foreground"
+        >
+          Md Arifuzzaman <span className="text-muted-foreground">Swapnil</span>
         </button>
 
-        {/* Desktop page nav */}
+        {/* Desktop nav */}
         <nav className="hidden items-center gap-1 lg:flex">
           {pages.map((p, i) => {
             const active = i === page;
@@ -26,18 +27,18 @@ const TopBar = () => {
               <button
                 key={p.id}
                 onClick={() => goTo(i)}
-                className={`relative rounded-lg px-3 py-1.5 text-sm transition-colors ${
-                  active ? "text-primary" : "text-muted-foreground hover:text-foreground"
+                className={`relative px-3 py-1.5 text-sm transition-colors ${
+                  active ? "text-foreground" : "text-muted-foreground hover:text-foreground"
                 }`}
               >
+                {p.label}
                 {active && (
                   <motion.span
-                    layoutId="topbar-active"
-                    className="absolute inset-0 -z-10 rounded-lg bg-primary/10 ring-1 ring-primary/20"
-                    transition={{ type: "spring", stiffness: 380, damping: 30 }}
+                    layoutId="nav-underline"
+                    className="absolute inset-x-3 -bottom-[15px] h-0.5 rounded-full bg-primary"
+                    transition={{ type: "spring", stiffness: 400, damping: 34 }}
                   />
                 )}
-                {p.label}
               </button>
             );
           })}
@@ -47,12 +48,12 @@ const TopBar = () => {
           <a
             href={CV_URL}
             download
-            className="hidden items-center gap-2 rounded-lg bg-gradient-to-r from-primary to-accent px-4 py-2 text-sm font-semibold text-primary-foreground shadow-glow transition-transform hover:scale-[1.04] sm:inline-flex"
+            className="press hidden items-center gap-2 rounded-lg bg-primary px-4 py-2 text-sm font-medium text-primary-foreground shadow-sm transition-colors hover:bg-primary/90 sm:inline-flex"
           >
             <FileDown size={15} /> Résumé
           </a>
           <button
-            aria-label="Open page menu"
+            aria-label="Open menu"
             className="rounded-lg p-1.5 text-foreground lg:hidden"
             onClick={() => setOpen((o) => !o)}
           >
@@ -61,14 +62,14 @@ const TopBar = () => {
         </div>
       </div>
 
-      {/* Mobile / tablet page list */}
+      {/* Mobile menu */}
       <AnimatePresence>
         {open && (
           <motion.div
-            className="glass-strong absolute inset-x-4 top-full z-50 overflow-hidden rounded-2xl p-2 lg:hidden"
-            initial={{ opacity: 0, y: -8 }}
+            className="absolute inset-x-0 top-full z-50 border-b border-border bg-card px-5 py-2 lg:hidden"
+            initial={{ opacity: 0, y: -6 }}
             animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -8 }}
+            exit={{ opacity: 0, y: -6 }}
           >
             {pages.map((p, i) => (
               <button
@@ -77,11 +78,11 @@ const TopBar = () => {
                   goTo(i);
                   setOpen(false);
                 }}
-                className={`flex w-full items-center gap-3 rounded-lg px-3 py-2.5 text-left text-sm transition-colors ${
-                  i === page ? "bg-primary/10 text-primary" : "text-muted-foreground hover:text-foreground"
+                className={`flex w-full items-center gap-3 rounded-md px-2 py-2.5 text-left text-sm transition-colors ${
+                  i === page ? "text-primary" : "text-muted-foreground hover:text-foreground"
                 }`}
               >
-                <span className="font-mono text-xs text-muted-foreground">
+                <span className="font-mono text-xs text-muted-foreground/70">
                   {String(i + 1).padStart(2, "0")}
                 </span>
                 {p.label}
@@ -91,7 +92,7 @@ const TopBar = () => {
               href={CV_URL}
               download
               onClick={() => setOpen(false)}
-              className="mt-1 flex items-center gap-2 rounded-lg bg-gradient-to-r from-primary to-accent px-3 py-2.5 text-sm font-semibold text-primary-foreground"
+              className="mt-1 flex items-center gap-2 rounded-md bg-primary px-3 py-2.5 text-sm font-medium text-primary-foreground"
             >
               <FileDown size={15} /> Download Résumé
             </a>

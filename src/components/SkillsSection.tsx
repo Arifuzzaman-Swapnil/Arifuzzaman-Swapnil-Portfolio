@@ -56,12 +56,6 @@ const skillCategories = [
   },
 ];
 
-const marquee = [
-  "Python", "Django", "FastAPI", "RAG", "LangChain", "GPT-4o", "Claude", "Gemini",
-  "React", "Next.js", "TypeScript", "Redis", "Celery", "PostgreSQL", "FAISS",
-  "Hugging Face", "PyTorch", "TensorFlow", "Stripe", "AWS",
-];
-
 const SkillsSection = () => (
   <section id="skills" className="relative flex min-h-full w-full items-center justify-center px-6 py-8 md:py-10">
     <SectionDecor />
@@ -73,38 +67,21 @@ const SkillsSection = () => (
         subtitle="The stack I use to take LLMs from research to production."
       />
 
-      {/* Marquee band */}
-      <Reveal>
-        <div className="group relative mb-8 overflow-hidden rounded-2xl border border-border bg-background/30 py-4 [mask-image:linear-gradient(90deg,transparent,#000_8%,#000_92%,transparent)]">
-          <div className="flex w-max animate-marquee gap-3 group-hover:[animation-play-state:paused]">
-            {[...marquee, ...marquee].map((s, i) => (
-              <span
-                key={i}
-                className="whitespace-nowrap rounded-full border border-border bg-card/60 px-4 py-1.5 font-mono text-sm text-muted-foreground"
-              >
-                {s}
-              </span>
-            ))}
-          </div>
-        </div>
-      </Reveal>
-
       {/* Categories */}
-      <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+      <div className="grid gap-5 md:grid-cols-2 lg:grid-cols-3">
         {skillCategories.map((cat, i) => (
           <Reveal key={cat.title} index={i % 3}>
-            <GlassCard tilt tiltIntensity={5} className="h-full p-6">
-              <div className="mb-4 flex items-center gap-3">
-                <div className="flex h-9 w-9 items-center justify-center rounded-lg bg-primary/10 text-primary">
-                  <cat.icon size={18} />
-                </div>
-                <h3 className="font-head text-sm font-semibold text-foreground">{cat.title}</h3>
+            <GlassCard className="h-full p-5">
+              <div className="mb-4 flex items-center gap-2.5">
+                <cat.icon size={15} className="shrink-0 text-muted-foreground/70" />
+                <h3 className="shrink-0 text-sm font-semibold text-foreground">{cat.title}</h3>
+                <div className="rule flex-1" />
               </div>
-              <div className="flex flex-wrap gap-2">
+              <div className="flex flex-wrap gap-1.5">
                 {cat.skills.map((skill) => (
                   <span
                     key={skill}
-                    className="rounded-full border border-border bg-secondary/60 px-3 py-1 text-xs text-secondary-foreground transition-colors hover:border-foreground/25 hover:bg-secondary"
+                    className="rounded-md border border-border bg-secondary/40 px-2.5 py-1 text-xs text-muted-foreground transition-colors hover:text-foreground"
                   >
                     {skill}
                   </span>
