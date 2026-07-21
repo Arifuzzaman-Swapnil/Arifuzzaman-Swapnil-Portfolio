@@ -27,8 +27,11 @@ interface DeckProps {
 const IDLE_MS = 420;
 /** Scroll/drag distance (× viewport height) for a full pull. */
 const PULL_FACTOR = 0.9;
-/** Content must be settled at the edge this long before a pull can start. */
-const SETTLE_MS = 300;
+/** On a SCROLLABLE page, its content must have been resting at the edge this
+ *  long before a pull can start — a continuous scrolling rhythm (wheel clicks
+ *  ~250ms apart, or touch inertia) that just reached the bottom must die out
+ *  first; only a clearly separate, later gesture pulls the next page in. */
+const SETTLE_MS = 600;
 /** A pull may only START on a fresh gesture — wheel input must have paused
  *  this long first (filters out momentum from the scroll that reached the edge). */
 const WHEEL_REST_MS = 160;
@@ -267,6 +270,9 @@ const Deck = ({ pages }: DeckProps) => {
       const dir: 1 | -1 = pull > 0 ? 1 : -1;
       const edgeOk = dir === 1 ? !s.canScroll || s.atBottom : !s.canScroll || s.atTop;
       if (!edgeOk) return;
+      // Same settle rule as the wheel: if inertia only just carried the
+      // content to this edge, this swipe belongs to the old scroll — ignore.
+      if (s.canScroll && performance.now() - lastInnerScroll.current < SETTLE_MS) return;
       const target = current + dir;
       if (target < 0 || target > count - 1) return;
       setIncoming({ idx: target, dir });
