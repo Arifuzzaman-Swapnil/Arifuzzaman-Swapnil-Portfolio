@@ -35,6 +35,10 @@ const SETTLE_MS = 600;
 /** A pull may only START on a fresh gesture — wheel input must have paused
  *  this long first (filters out momentum from the scroll that reached the edge). */
 const WHEEL_REST_MS = 160;
+/** On a SCROLLABLE page the whole scroll session must end first: wheel input
+ *  itself must go quiet this long before a new scroll can pull the next page.
+ *  (Rhythmic clicking is ~250ms apart — it must never leak into a pull.) */
+const SCROLL_END_REST_MS = 500;
 
 interface Incoming {
   idx: number;
@@ -216,15 +220,22 @@ const Deck = ({ pages }: DeckProps) => {
       if (now - lastSettle.current < 400) return;
 
       const { atTop, atBottom, canScroll } = edgeState();
-      // Content absorbs the scroll first
-      if (canScroll && ((dy > 0 && !atBottom) || (dy < 0 && !atTop))) return;
-      // Let the reaching-the-edge gesture finish before a pull can start
-      if (canScroll && now - lastInnerScroll.current < SETTLE_MS) return;
-      // Only a FRESH gesture may start a pull. Momentum tails decay, so either
-      // a pause in wheel input OR a clear jump in delta strength (a new flick
-      // mid-tail) counts as fresh; a decaying tail never does.
-      const fresh = now - prevWheel > WHEEL_REST_MS || Math.abs(dy) > prevMag * 1.5;
-      if (!fresh) return;
+      if (canScroll) {
+        // Content absorbs the scroll first
+        if ((dy > 0 && !atBottom) || (dy < 0 && !atTop)) return;
+        // The scroll session must be truly OVER before a pull can start:
+        // content resting at the edge AND the wheel itself gone quiet.
+        // (Reaching the bottom emits no further scroll events, so rhythmic
+        // clicking at the edge must be caught by the wheel-quiet rule.)
+        if (now - lastInnerScroll.current < SETTLE_MS) return;
+        if (now - prevWheel < SCROLL_END_REST_MS) return;
+      } else {
+        // Short pages respond on the first scroll — only momentum tails are
+        // filtered (a pause in input, or a clear jump in delta strength,
+        // counts as fresh; a decaying tail never does).
+        const fresh = now - prevWheel > WHEEL_REST_MS || Math.abs(dy) > prevMag * 1.5;
+        if (!fresh) return;
+      }
 
       const dir: 1 | -1 = dy > 0 ? 1 : -1;
       const target = current + dir;
