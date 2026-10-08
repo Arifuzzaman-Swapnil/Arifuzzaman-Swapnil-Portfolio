@@ -6,23 +6,27 @@ import ProjectsSection from "@/components/ProjectsSection";
 import SkillsSection from "@/components/SkillsSection";
 import AwardsSection from "@/components/AwardsSection";
 import ContactSection from "@/components/ContactSection";
-import Deck from "@/components/deck/Deck";
-
-const pages = [
-  { id: "home", label: "Home", node: <HeroSection /> },
-  { id: "about", label: "About", node: <AboutSection /> },
-  { id: "education", label: "Education", node: <EducationSection /> },
-  { id: "experience", label: "Experience", node: <ExperienceSection /> },
-  { id: "projects", label: "Projects", node: <ProjectsSection /> },
-  { id: "skills", label: "Skills", node: <SkillsSection /> },
-  { id: "awards", label: "Awards", node: <AwardsSection /> },
-  { id: "contact", label: "Contact", node: <ContactSection /> },
-];
+import SiteHeader from "@/components/SiteHeader";
+import ScrollProgress from "@/components/ui-custom/ScrollProgress";
+import SitePreviewProvider from "@/components/site-preview/SitePreviewProvider";
 
 const Index = () => (
-  <div className="relative h-full">
-    <Deck pages={pages} />
-  </div>
+  <SitePreviewProvider>
+    <div className="page-light relative min-h-screen">
+      <ScrollProgress />
+      <SiteHeader />
+      <main>
+        <HeroSection />
+        <AboutSection />
+        <EducationSection />
+        <ExperienceSection />
+        <ProjectsSection />
+        <SkillsSection />
+        <AwardsSection />
+        <ContactSection />
+      </main>
+    </div>
+  </SitePreviewProvider>
 );
 
 export default Index;

@@ -27,12 +27,14 @@ const educationData = [
 ];
 
 const EducationSection = () => (
-  <section id="education" className="relative flex min-h-full w-full items-center justify-center px-6 py-8 md:py-10">
+  <section id="education" className="relative w-full px-6 py-20 md:py-28">
     <SectionDecor />
-    <div className="container mx-auto max-w-4xl">
-      <SectionHeader index="02" tag="// education" title="Academic Background" />
+    <div className="container mx-auto grid max-w-6xl 2xl:max-w-7xl gap-2 lg:grid-cols-[17rem_minmax(0,1fr)] lg:gap-14">
+      <div className="lg:sticky lg:top-28 lg:self-start">
+        <SectionHeader index="02" tag="// education" title="Academic Background" />
+      </div>
 
-      <div className="relative space-y-5 before:absolute before:left-[27px] before:top-2 before:hidden before:h-[calc(100%-1rem)] before:w-px before:bg-border md:before:block">
+      <div className="relative space-y-5 before:absolute before:left-[27px] before:top-2 before:hidden before:h-[calc(100%-1rem)] before:w-px before:bg-gradient-to-b before:from-primary/50 before:via-border before:to-transparent md:before:block">
         {educationData.map((edu, i) => (
           <Reveal key={i} index={i}>
             <GlassCard className="p-5 md:p-6 md:pl-20">
@@ -41,17 +43,17 @@ const EducationSection = () => (
                 <GraduationCap size={15} />
               </div>
               <div className="flex items-start gap-3">
-                <div className="rounded-lg bg-secondary p-2 text-muted-foreground md:hidden">
-                  <GraduationCap size={18} />
+                <div className="icon-tile h-9 w-9 shrink-0 md:hidden">
+                  <GraduationCap size={16} />
                 </div>
                 <div className="flex-1">
                   <div className="flex flex-col gap-1 md:flex-row md:items-center md:justify-between">
                     <h3 className="text-base font-semibold text-foreground md:text-lg">{edu.degree}</h3>
-                    <span className="font-mono text-xs text-muted-foreground">{edu.year}</span>
+                    <span className="chip tnum w-fit shrink-0">{edu.year}</span>
                   </div>
                   {edu.detail && <p className="text-sm text-muted-foreground">{edu.detail}</p>}
                   <p className="mt-1 text-sm text-muted-foreground">{edu.institution}</p>
-                  <p className="tnum mt-2.5 inline-block rounded-md border border-border px-2 py-0.5 text-sm font-medium text-foreground">
+                  <p className="tnum mt-3 inline-block rounded-md border border-border bg-secondary/70 px-2.5 py-1 text-sm font-medium text-foreground shadow-[inset_0_1px_0_hsl(0_0%_100%/0.05)]">
                     {edu.grade}
                   </p>
                 </div>

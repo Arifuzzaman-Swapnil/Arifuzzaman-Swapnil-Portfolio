@@ -3,11 +3,11 @@ import { useFrame } from "@react-three/fiber";
 import * as THREE from "three";
 
 /**
- * A single calm, slowly rotating low-poly shape — a quiet accent, not a
- * spectacle. No distortion, particles, or bloom.
+ * A single calm, slowly rotating shape — a fine wireframe shell around a dark
+ * faceted core. A quiet accent, not a spectacle. No distortion, particles, or bloom.
  */
 const CalmShape = () => {
-  const ref = useRef<THREE.Mesh>(null);
+  const ref = useRef<THREE.Group>(null);
 
   useFrame((_, delta) => {
     if (!ref.current) return;
@@ -16,15 +16,16 @@ const CalmShape = () => {
   });
 
   return (
-    <mesh ref={ref} scale={1.35}>
-      <icosahedronGeometry args={[1.4, 0]} />
-      <meshStandardMaterial
-        color="#3a4a6b"
-        roughness={0.6}
-        metalness={0.15}
-        flatShading
-      />
-    </mesh>
+    <group ref={ref} scale={1.35}>
+      <mesh>
+        <icosahedronGeometry args={[1.4, 0]} />
+        <meshStandardMaterial color="#1c2333" roughness={0.7} metalness={0.2} flatShading />
+      </mesh>
+      <mesh scale={1.08}>
+        <icosahedronGeometry args={[1.4, 1]} />
+        <meshBasicMaterial color="#5b7bb5" wireframe transparent opacity={0.22} />
+      </mesh>
+    </group>
   );
 };
 

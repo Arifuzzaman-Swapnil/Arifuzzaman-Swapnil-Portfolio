@@ -15,69 +15,72 @@ const socials = [
 ];
 
 const ContactSection = () => (
-  <section id="contact" className="relative flex min-h-full w-full items-center justify-center px-6 py-8 md:py-10">
+  <section id="contact" className="relative w-full px-6 pb-10 pt-20 md:pt-28">
     <SectionDecor />
-    <div className="container mx-auto max-w-3xl text-center">
-      <SectionHeader index="07" tag="// contact" title="Let's Build Something" />
+    <div className="container mx-auto max-w-6xl 2xl:max-w-7xl">
+      <div className="mx-auto max-w-3xl text-center">
+        <SectionHeader index="07" tag="// contact" title="Let's Build Something" />
 
-      <Reveal>
-        <div className="surface rounded-2xl p-8 md:p-12">
-          <h3 className="mx-auto max-w-2xl text-2xl font-semibold tracking-tight text-foreground md:text-3xl">
-            Have an AI product to ship?{" "}
-            <span className="text-primary">Let&apos;s talk.</span>
-          </h3>
-          <p className="mx-auto mt-3 max-w-xl text-sm leading-relaxed text-muted-foreground md:text-base">
-            Backend AI Engineer specialising in production RAG pipelines and LLM-powered products.
-            Open to collaborations and opportunities in AI/ML engineering.
-          </p>
+        <Reveal>
+          <div className="surface relative rounded-2xl p-8 md:p-12">
+            {/* Soft static spotlight from the top edge */}
+            <div className="pointer-events-none absolute inset-0 overflow-hidden rounded-[inherit]">
+              <div className="absolute inset-x-0 -top-24 mx-auto h-48 w-[80%] rounded-full bg-[radial-gradient(closest-side,hsl(217_91%_60%/0.16),transparent)] blur-2xl" />
+              <span className="absolute inset-x-12 top-0 h-px bg-gradient-to-r from-transparent via-white/25 to-transparent" />
+            </div>
 
-          <div className="mt-8 flex flex-wrap justify-center gap-3">
-            <a
-              href="mailto:md.arifuzzamanswapnil@gmail.com"
-              className="press inline-flex h-10 items-center gap-2 rounded-lg bg-primary px-5 text-sm font-medium text-primary-foreground shadow-sm transition-colors hover:bg-primary/90"
-            >
-              <Mail size={16} /> Get in touch
-            </a>
-            <a
-              href={CV_URL}
-              download
-              className="press inline-flex h-10 items-center gap-2 rounded-lg border border-border px-5 text-sm font-medium text-foreground transition-colors hover:bg-secondary"
-            >
-              <FileDown size={16} /> Download CV
-            </a>
+            <div className="relative">
+              <h3 className="mx-auto max-w-2xl text-2xl font-semibold tracking-tight text-foreground md:text-3xl">
+                <span className="text-fade">Have an AI product to ship?</span>{" "}
+                <span className="text-primary">Let&apos;s talk.</span>
+              </h3>
+              <p className="mx-auto mt-3 max-w-xl text-sm leading-relaxed text-muted-foreground md:text-base">
+                Backend AI Engineer specialising in production RAG pipelines and LLM-powered products.
+                Open to collaborations and opportunities in AI/ML engineering.
+              </p>
+
+              <div className="mt-8 flex flex-wrap justify-center gap-3">
+                <a href="mailto:md.arifuzzamanswapnil@gmail.com" className="btn-primary">
+                  <Mail size={16} /> Get in touch
+                </a>
+                <a href={CV_URL} download className="btn-ghost">
+                  <FileDown size={16} /> Download CV
+                </a>
+              </div>
+
+              <div className="rule-fade mx-auto mt-9 max-w-md" />
+
+              <div className="mt-7 flex flex-wrap justify-center gap-2">
+                {socials.map((s) => (
+                  <a
+                    key={s.title}
+                    href={s.href}
+                    target={s.external ? "_blank" : undefined}
+                    rel={s.external ? "noopener noreferrer" : undefined}
+                    className="press inline-flex items-center gap-2 rounded-full border border-border bg-white/[0.02] px-3.5 py-1.5 text-xs text-muted-foreground transition-colors hover:border-white/15 hover:bg-white/[0.06] hover:text-foreground"
+                  >
+                    <s.icon size={14} />
+                    {s.title}
+                  </a>
+                ))}
+              </div>
+            </div>
           </div>
+        </Reveal>
+      </div>
 
-          <div className="mt-8 flex justify-center gap-2.5">
-            {socials.map((s) => (
-              <a
-                key={s.title}
-                href={s.href}
-                target={s.external ? "_blank" : undefined}
-                rel={s.external ? "noopener noreferrer" : undefined}
-                className="press rounded-lg border border-border p-2.5 text-muted-foreground transition-colors hover:bg-secondary hover:text-foreground"
-                title={s.title}
-              >
-                <s.icon size={18} />
-              </a>
-            ))}
-          </div>
-        </div>
-      </Reveal>
-
-      <Reveal index={1}>
-        <div className="mt-8 flex flex-col items-center justify-between gap-2 border-t border-border pt-6 text-xs text-muted-foreground sm:flex-row">
-          <span>&copy; {new Date().getFullYear()} Md Arifuzzaman Swapnil. All rights reserved.</span>
-          <a
-            href="https://arifuzzaman-swapnil-portfolio.com"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-flex items-center gap-1.5 transition-colors hover:text-foreground"
-          >
-            <Globe size={13} /> arifuzzaman-swapnil-portfolio.com
-            <ArrowUpRight size={12} />
-          </a>
-        </div>
-      </Reveal>
+      <footer className="mt-20 flex flex-col items-center justify-between gap-2 border-t border-border pt-6 text-xs text-muted-foreground sm:flex-row">
+        <span>&copy; {new Date().getFullYear()} Md Arifuzzaman Swapnil. All rights reserved.</span>
+        <a
+          href="https://arifuzzaman-swapnil-portfolio.com"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="inline-flex items-center gap-1.5 transition-colors hover:text-foreground"
+        >
+          <Globe size={13} /> arifuzzaman-swapnil-portfolio.com
+          <ArrowUpRight size={12} />
+        </a>
+      </footer>
     </div>
   </section>
 );

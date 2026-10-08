@@ -2,8 +2,9 @@ import { Canvas } from "@react-three/fiber";
 import CalmShape from "./AICore";
 
 /** Minimal hero scene: one calm rotating shape with soft lighting. */
-const HeroScene = () => (
+const HeroScene = ({ active = true }: { active?: boolean }) => (
   <Canvas
+    frameloop={active ? "always" : "never"}
     camera={{ position: [0, 0, 5], fov: 42 }}
     dpr={[1, 1.6]}
     gl={{ antialias: true, alpha: true, powerPreference: "high-performance" }}

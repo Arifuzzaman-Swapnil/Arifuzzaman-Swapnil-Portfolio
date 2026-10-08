@@ -1,4 +1,4 @@
-import type { ReactNode } from "react";
+import type { MouseEvent, ReactNode } from "react";
 import { cn } from "@/lib/utils";
 
 interface GlassCardProps {
@@ -10,12 +10,25 @@ interface GlassCardProps {
   tiltIntensity?: number;
 }
 
+/** Feed the pointer position to the `.spotlight` glow via CSS vars (no re-render). */
+const trackPointer = (e: MouseEvent<HTMLDivElement>) => {
+  const el = e.currentTarget;
+  const r = el.getBoundingClientRect();
+  el.style.setProperty("--mx", `${e.clientX - r.left}px`);
+  el.style.setProperty("--my", `${e.clientY - r.top}px`);
+};
+
 /**
- * Flat surface card: card background, hairline border, subtle hover elevation.
- * (The old glass/tilt/glow treatment was removed for the minimal design.)
+ * Surface card: soft gradient fill, gradient hairline, subtle hover elevation
+ * and a neutral pointer-following glow.
  */
 const GlassCard = ({ children, className }: GlassCardProps) => (
-  <div className={cn("surface hover-lift relative h-full rounded-xl", className)}>{children}</div>
+  <div
+    onMouseMove={trackPointer}
+    className={cn("surface spotlight hover-lift relative h-full rounded-xl", className)}
+  >
+    {children}
+  </div>
 );
 
 export default GlassCard;

@@ -6,52 +6,52 @@
 
 @layer base {
   :root {
-    /* Refined dark neutral */
-    --background: 240 6% 5%;
-    --foreground: 240 6% 93%;
+    /* Deep black neutral */
+    --background: 240 8% 3.5%;
+    --foreground: 240 6% 94%;
 
-    --card: 240 5% 9%;
-    --card-foreground: 240 6% 93%;
+    --card: 240 6% 7%;
+    --card-foreground: 240 6% 94%;
 
-    --popover: 240 5% 8%;
-    --popover-foreground: 240 6% 93%;
+    --popover: 240 6% 6%;
+    --popover-foreground: 240 6% 94%;
 
     /* Single accent — calm blue #3B82F6 */
     --primary: 217 91% 60%;
     --primary-foreground: 0 0% 100%;
 
-    --secondary: 240 5% 14%;
+    --secondary: 240 5% 11%;
     --secondary-foreground: 240 6% 90%;
 
-    --muted: 240 5% 12%;
-    --muted-foreground: 240 5% 60%;
+    --muted: 240 5% 11%;
+    --muted-foreground: 240 5% 63%;
 
-    --accent: 240 5% 14%;
-    --accent-foreground: 240 6% 93%;
+    --accent: 240 5% 11%;
+    --accent-foreground: 240 6% 94%;
 
     --destructive: 0 72% 55%;
     --destructive-foreground: 0 0% 100%;
 
-    --border: 240 5% 15%;
-    --input: 240 5% 15%;
+    --border: 240 5% 13%;
+    --input: 240 5% 13%;
     --ring: 217 91% 60%;
 
     --radius: 0.625rem;
 
-    --shadow-card: 0 1px 2px hsl(0 0% 0% / 0.3), 0 8px 24px -14px hsl(0 0% 0% / 0.55);
+    --shadow-card: 0 1px 2px hsl(0 0% 0% / 0.4), 0 12px 32px -16px hsl(0 0% 0% / 0.8);
 
     --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
     --font-display: var(--font-sans);
     --font-head: var(--font-sans);
     --font-mono: 'JetBrains Mono', monospace;
 
-    --sidebar-background: 240 5% 9%;
-    --sidebar-foreground: 240 6% 93%;
+    --sidebar-background: 240 6% 7%;
+    --sidebar-foreground: 240 6% 94%;
     --sidebar-primary: 217 91% 60%;
     --sidebar-primary-foreground: 0 0% 100%;
-    --sidebar-accent: 240 5% 14%;
-    --sidebar-accent-foreground: 240 6% 93%;
-    --sidebar-border: 240 5% 15%;
+    --sidebar-accent: 240 5% 11%;
+    --sidebar-accent-foreground: 240 6% 94%;
+    --sidebar-border: 240 5% 13%;
     --sidebar-ring: 217 91% 60%;
   }
 }
@@ -61,10 +61,15 @@
     @apply border-border;
   }
 
-  html,
-  body,
-  #root {
-    height: 100%;
+  html {
+    /* Keep anchored sections clear of the sticky header */
+    scroll-padding-top: 4.5rem;
+  }
+
+  @media (prefers-reduced-motion: no-preference) {
+    html {
+      scroll-behavior: smooth;
+    }
   }
 
   body {
@@ -73,8 +78,6 @@
     font-feature-settings: "cv11", "ss01";
     -webkit-font-smoothing: antialiased;
     text-rendering: optimizeLegibility;
-    /* Deck owns the viewport — no document scroll */
-    overflow: hidden;
   }
 
   h1, h2, h3, h4, h5, h6 {
@@ -116,21 +119,63 @@
 }
 
 @layer utilities {
-  /* Flat surface — hairline border + near-invisible top highlight for depth */
+  /* Surface card — soft vertical fill, hairline border, light top edge */
   .glass,
   .glass-strong,
   .surface {
-    background: hsl(var(--card));
+    background: linear-gradient(180deg, hsl(240 6% 7.5%) 0%, hsl(240 6% 5.5%) 100%);
     border: 1px solid hsl(var(--border));
     box-shadow:
-      inset 0 1px 0 hsl(0 0% 100% / 0.04),
-      0 1px 2px hsl(0 0% 0% / 0.2);
+      inset 0 1px 0 hsl(0 0% 100% / 0.035),
+      0 1px 2px hsl(0 0% 0% / 0.35);
   }
 
-  /* Neutral top-light: subtle dimension behind the whole deck */
+  /* Gradient hairline: brighter along the top edge, fading downward */
+  .surface::before {
+    content: "";
+    position: absolute;
+    inset: -1px;
+    border-radius: inherit;
+    padding: 1px;
+    background: linear-gradient(
+      180deg,
+      hsl(0 0% 100% / 0.11) 0%,
+      hsl(0 0% 100% / 0.03) 35%,
+      transparent 70%
+    );
+    -webkit-mask:
+      linear-gradient(#000 0 0) content-box,
+      linear-gradient(#000 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+    pointer-events: none;
+  }
+
+  /* Pointer-following neutral glow (brightness only — no hue) */
+  .spotlight::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    background: radial-gradient(
+      360px circle at var(--mx, 50%) var(--my, 0%),
+      hsl(0 0% 100% / 0.045),
+      transparent 70%
+    );
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    pointer-events: none;
+  }
+  .spotlight:hover::after {
+    opacity: 1;
+  }
+
+  /* Page backdrop: neutral top-light + faint blue spotlight, fixed-size so it
+     stays at the top of a long scrolling page */
   .page-light {
     background:
-      radial-gradient(90% 70% at 50% -20%, hsl(240 6% 9%) 0%, transparent 60%),
+      radial-gradient(900px 520px at 50% -140px, hsl(217 91% 60% / 0.09) 0%, transparent 100%),
+      radial-gradient(1400px 800px at 50% -200px, hsl(240 6% 8.5%) 0%, transparent 70%),
       hsl(var(--background));
   }
 
@@ -149,6 +194,99 @@
 
   .tnum {
     font-variant-numeric: tabular-nums;
+  }
+
+  /* Static neutral fade for display type (no accent hue, not animated) */
+  .text-fade {
+    background: linear-gradient(180deg, hsl(0 0% 100%) 0%, hsl(240 5% 70%) 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+
+  /* Buttons */
+  .btn-primary,
+  .btn-ghost {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    height: 2.5rem;
+    padding: 0 1.25rem;
+    border-radius: 0.625rem;
+    font-size: 0.875rem;
+    font-weight: 500;
+    white-space: nowrap;
+    transition: transform 0.12s ease, filter 0.2s ease, background-color 0.2s ease,
+      border-color 0.2s ease, box-shadow 0.2s ease;
+  }
+  .btn-primary:active,
+  .btn-ghost:active {
+    transform: scale(0.98);
+  }
+  .btn-primary {
+    color: hsl(var(--primary-foreground));
+    background: linear-gradient(180deg, hsl(217 91% 63%) 0%, hsl(217 85% 55%) 100%);
+    box-shadow:
+      inset 0 1px 0 hsl(0 0% 100% / 0.22),
+      inset 0 0 0 1px hsl(217 91% 70% / 0.25),
+      0 6px 20px -8px hsl(217 91% 60% / 0.55);
+  }
+  .btn-primary:hover {
+    filter: brightness(1.08);
+    box-shadow:
+      inset 0 1px 0 hsl(0 0% 100% / 0.22),
+      inset 0 0 0 1px hsl(217 91% 70% / 0.3),
+      0 8px 26px -8px hsl(217 91% 60% / 0.7);
+  }
+  .btn-ghost {
+    color: hsl(var(--foreground));
+    background: hsl(0 0% 100% / 0.025);
+    border: 1px solid hsl(var(--border));
+    box-shadow: inset 0 1px 0 hsl(0 0% 100% / 0.04);
+  }
+  .btn-ghost:hover {
+    background: hsl(0 0% 100% / 0.06);
+    border-color: hsl(240 5% 20%);
+  }
+
+  /* Tag / pill */
+  .chip {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.375rem;
+    border-radius: 0.375rem;
+    border: 1px solid hsl(var(--border));
+    background: hsl(0 0% 100% / 0.02);
+    padding: 0.25rem 0.5rem;
+    font-family: var(--font-mono);
+    font-size: 11px;
+    line-height: 1.2;
+    color: hsl(var(--muted-foreground));
+    transition: color 0.2s ease, border-color 0.2s ease, background-color 0.2s ease;
+  }
+
+  /* Small icon tile with a light top edge */
+  .icon-tile {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 0.625rem;
+    border: 1px solid hsl(var(--border));
+    background: linear-gradient(180deg, hsl(240 5% 12%) 0%, hsl(240 5% 8%) 100%);
+    box-shadow: inset 0 1px 0 hsl(0 0% 100% / 0.06);
+    color: hsl(var(--foreground) / 0.8);
+  }
+
+  /* Hairline that fades out at both ends */
+  .rule-fade {
+    height: 1px;
+    background: linear-gradient(
+      90deg,
+      transparent,
+      hsl(0 0% 100% / 0.1) 20%,
+      hsl(0 0% 100% / 0.1) 80%,
+      transparent
+    );
   }
 
   /* Gradient text tokens flattened to solid */
@@ -177,8 +315,8 @@
   }
   .hover-lift:hover {
     transform: translateY(-2px);
-    border-color: hsl(240 5% 22%);
-    box-shadow: var(--shadow-card);
+    border-color: hsl(240 5% 19%);
+    box-shadow: inset 0 1px 0 hsl(0 0% 100% / 0.05), var(--shadow-card);
   }
 
   /* Legacy decorative hooks kept as no-ops so stray classes don't break layout */

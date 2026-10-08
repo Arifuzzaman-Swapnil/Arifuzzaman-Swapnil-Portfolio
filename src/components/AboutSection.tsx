@@ -12,15 +12,15 @@ const stats = [
 ];
 
 const AboutSection = () => (
-  <section id="about" className="relative flex min-h-full w-full items-center justify-center px-6 py-8 md:py-10">
+  <section id="about" className="relative w-full px-6 py-20 md:py-28">
     <SectionDecor />
-    <div className="container mx-auto max-w-5xl">
+    <div className="container mx-auto max-w-6xl 2xl:max-w-7xl">
       <SectionHeader index="01" tag="// about me" title="Who I Am" />
 
       <div className="grid gap-10 lg:grid-cols-[1.1fr_0.9fr] lg:items-center">
         {/* Bio */}
         <Reveal className="space-y-5 text-base leading-relaxed text-muted-foreground md:text-lg">
-          <p className="text-xl font-medium text-foreground md:text-2xl">
+          <p className="border-l-2 border-primary/70 pl-4 text-xl font-medium leading-snug text-foreground md:text-2xl">
             I don&apos;t just write code — I build systems that think.
           </p>
           <p>
@@ -46,10 +46,10 @@ const AboutSection = () => (
           {stats.map((s, i) => (
             <Reveal key={s.label} index={i}>
               <GlassCard className="flex h-full flex-col p-5">
-                <div className="mb-6 flex items-start justify-between">
-                  <s.icon className="text-muted-foreground/70" size={16} />
+                <div className="icon-tile mb-6 h-8 w-8">
+                  <s.icon size={15} />
                 </div>
-                <p className="tnum mt-auto text-2xl font-semibold leading-tight tracking-tight text-foreground">
+                <p className="tnum text-fade mt-auto text-3xl font-semibold leading-tight tracking-tight">
                   {s.value}
                 </p>
                 <p className="mt-1.5 text-xs leading-snug text-muted-foreground">{s.label}</p>
